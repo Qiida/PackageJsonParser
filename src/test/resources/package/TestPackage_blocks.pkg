@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2023.2.3.137736+c9272ee672d8" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="78ee6ef7-b211-453f-94ab-950ef03daa15" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Block 1</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP id="43422990-ec73-44e0-89ed-e530d6f51554" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">3</VALUE>
+				</TIME>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="90006419-0791-402c-a05f-b81635b06798" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Block 2</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP id="011f3d04-86d4-42aa-970e-1d23ccc561ed" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">3</VALUE>
+				</TIME>
+			</TESTSTEP>
+			<TESTSTEP id="4f56ab8d-f2ab-4ea2-9ddf-f63862ffa478" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">3</VALUE>
+				</TIME>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="a539daef-ee84-4c65-a9a8-821b7ffc1b87" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Block 3</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP id="996159d3-b63b-4e27-8e01-c5a2bda94a6e" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">3</VALUE>
+				</TIME>
+			</TESTSTEP>
+			<TESTSTEP id="e4321bfc-14a1-416c-8d2b-6cdc918fbca9" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">3</VALUE>
+				</TIME>
+			</TESTSTEP>
+			<TESTSTEP id="2990ea23-bbca-4f79-be82-2191c17120af" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+				<TIME format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="integer">3</VALUE>
+				</TIME>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

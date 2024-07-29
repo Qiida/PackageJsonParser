@@ -1,0 +1,587 @@
+{
+  "Name": "TSI_INT_SCHNITTSTELLE_GsdAliveAusfallCcm",
+  "Id": "1117695",
+  "Version": "0.5.0",
+  "Path": "C:\\src\\BK25_Workspace\\Packages\\TCI\\DD_TSP\\_TSI_overall\\R24-09\\TSI_INT_SCHNITTSTELLE_GsdAliveAusfallCcm.pkg",
+  "Steps": {
+    "[1] Precondition": {
+      "Line": 1,
+      "Type": "TsPreconditionBlock",
+      "Name": "Precondition",
+      "Steps": {
+        "[2] Status: Component GSD (GSD_Component_TSP_EES25)": {
+          "Line": 2,
+          "Type": "TsKeyword",
+          "Name": "Status: Component GSD (GSD_Component_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'installed'"
+        },
+        "[3] Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)": {
+          "Line": 3,
+          "Type": "TsKeyword",
+          "Name": "Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)",
+          "Parameter": {
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "8737": {
+              "Name": "CANoe_Config",
+              "Value": "'Default'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "8738": {
+              "Name": "ECU_List_Type",
+              "Value": "'EF_expanded'"
+            }
+          }
+        },
+        "[4] Status: Vehicle_Request (Vehicle_Request_TSP_EES25)": {
+          "Line": 4,
+          "Type": "TsKeyword",
+          "Name": "Status: Vehicle_Request (Vehicle_Request_TSP_EES25)",
+          "Parameter": {
+            "67951": {
+              "Name": "Component",
+              "Value": "'Series'"
+            }
+          }
+        },
+        "[5] ### Precondition 01: Vehicle is stationary, Driving condition": {
+          "Line": 5,
+          "Type": "TsBlock",
+          "Name": "### Precondition 01: Vehicle is stationary, Driving condition",
+          "Steps": {
+            "[6] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 6,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'Blocktext'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[7] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 7,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'driving'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[8] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 8,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[9] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 9,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[10] ### Precondition 02: DSC in full system, GSD available": {
+          "Line": 10,
+          "Type": "TsBlock",
+          "Name": "### Precondition 02: DSC in full system, GSD available",
+          "Steps": {
+            "[11] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 11,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'Blocktext'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[12] Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)": {
+          "Line": 12,
+          "Type": "TsKeyword",
+          "Name": "Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)",
+          "Parameter": {
+            "68589": {
+              "Name": "operational_readiness_EF_interconnetion",
+              "Value": "'full_system'"
+            }
+          },
+          "Expectation": "value == 'active'"
+        },
+        "[13] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 13,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[14] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 14,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[15] Read(QU_AVL_LTRQD_BAX)": {
+          "Line": 15,
+          "Type": "TsRead",
+          "Name": "Read(QU_AVL_LTRQD_BAX)",
+          "Signal": {
+            "Name": "QU_AVL_LTRQD_BAX",
+            "Path": "A_FlexRay/GSD/ActValLatTorqueDistRearAxle/ActValLatTorqueDistRearAxle/QU_AVL_LTRQD_BAX",
+            "Category": "Powertrain",
+            "AccessType": "BUS",
+            "SystemIdentifier": "A_FlexRay",
+            "Pdu": "ActValLatTorqueDistRearAxle",
+            "Node": "GSD",
+            "Frame": "ActValLatTorqueDistRearAxle"
+          },
+          "Expectation": "value == 2"
+        },
+        "[16] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 16,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[17] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 17,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'Qualifier locking torque rear axle, QU_AVL_LTRQD_BAX =% #x (Target-Value: 2) ' % _QU_AVL_LTRQD_BAX"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "[18] Action": {
+      "Line": 18,
+      "Type": "TsBlock",
+      "Name": "Action",
+      "Steps": {
+        "[19] ### Action 01: Provoking a GSD timeout by switching off the power supply to the GSD control unit.": {
+          "Line": 19,
+          "Type": "TsBlock",
+          "Name": "### Action 01: Provoking a GSD timeout by switching off the power supply to the GSD control unit.",
+          "Steps": {
+            "[20] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 20,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'Blocktext'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[21] Control: ECU GSD (ECU_GSD_TSP_EES25)": {
+          "Line": 21,
+          "Type": "TsKeyword",
+          "Name": "Control: ECU GSD (ECU_GSD_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'turn_off'"
+            }
+          }
+        },
+        "[22] Wait(7 s)": {
+          "Line": 22,
+          "Type": "TsWait",
+          "Name": "Wait(7 s)"
+        },
+        "[23] Die CCM 780 soll nur bei M-GmbH Derivanten angezeigt werden": {
+          "Line": 23,
+          "Type": "TsBlock",
+          "Name": "Die CCM 780 soll nur bei M-GmbH Derivanten angezeigt werden",
+          "Steps": {
+            "[24] If(Baureihe in ['G009'])": {
+              "Line": 24,
+              "Type": "TsIfThenElse",
+              "Name": "If(Baureihe in ['G009'])",
+              "Condition": "Baureihe in ['G009']",
+              "[25] Then": {
+                "Line": 25,
+                "Type": "Node",
+                "Name": "Then",
+                "Steps": {
+                  "[26] Calculation": {
+                    "Line": 26,
+                    "Type": "TsCalculation",
+                    "Name": "Calculation"
+                  },
+                  "[27] Calculation": {
+                    "Line": 27,
+                    "Type": "TsCalculation",
+                    "Name": "Calculation"
+                  }
+                }
+              },
+              "[28] Else": {
+                "Line": 28,
+                "Type": "Node",
+                "Name": "Else",
+                "Steps": {
+                  "[29] Calculation": {
+                    "Line": 29,
+                    "Type": "TsCalculation",
+                    "Name": "Calculation"
+                  },
+                  "[30] Calculation": {
+                    "Line": 30,
+                    "Type": "TsCalculation",
+                    "Name": "Calculation"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "[31] Status: CCM (CCM_TSP_EES25)": {
+          "Line": 31,
+          "Type": "TsKeyword",
+          "Name": "Status: CCM (CCM_TSP_EES25)",
+          "Parameter": {
+            "8846": {
+              "Name": "CCM_Liste",
+              "Value": "[_781]"
+            }
+          },
+          "Expectation": "value == 'active'"
+        },
+        "[32] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 32,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[33] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 33,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[34] Status: IDCevo CCM (CCM_IDCevo_TSP_EES25)": {
+          "Line": 34,
+          "Type": "TsKeyword",
+          "Name": "Status: IDCevo CCM (CCM_IDCevo_TSP_EES25)",
+          "Parameter": {
+            "75820": {
+              "Name": "CCM_List",
+              "Value": "[_781]"
+            }
+          },
+          "Expectation": "value == 'active'"
+        },
+        "[35] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 35,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[36] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 36,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[37] Status: CCM (CCM_TSP_EES25)": {
+          "Line": 37,
+          "Type": "TsKeyword",
+          "Name": "Status: CCM (CCM_TSP_EES25)",
+          "Parameter": {
+            "8846": {
+              "Name": "CCM_Liste",
+              "Value": "[_780]"
+            }
+          },
+          "Expectation": "value == 'not_active'"
+        },
+        "[38] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 38,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[39] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 39,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "[40] Postcondition": {
+      "Line": 40,
+      "Type": "TsPostconditionBlock",
+      "Name": "Postcondition",
+      "Steps": {
+        "[41] Control: ECU GSD (ECU_GSD_TSP_EES25)": {
+          "Line": 41,
+          "Type": "TsKeyword",
+          "Name": "Control: ECU GSD (ECU_GSD_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'turn_on'"
+            }
+          }
+        },
+        "[42] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 42,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'driving'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[43] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 43,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[44] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 44,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[45] Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)": {
+          "Line": 45,
+          "Type": "TsKeyword",
+          "Name": "Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)",
+          "Parameter": {
+            "67397": {
+              "Name": "UserText",
+              "Value": "'_'"
+            },
+            "67398": {
+              "Name": "NewErrorsAfterTest",
+              "Value": "'new_errors_allowed'"
+            },
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "67395": {
+              "Name": "Traceanalysis",
+              "Value": "'no_traceanalysis'"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2024.1.1.147821+33618a0cd21b" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<LOCAL-MAPPING xsi:type="localMapping">
+		<MAPPING format-rev="1" xsi:type="mapping">
+			<INTERFACE-REF xsi:type="keywordInterfaceRef">
+				<ID xsi:type="integer">43247</ID>
+			</INTERFACE-REF>
+		</MAPPING>
+	</LOCAL-MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="f2d99f00-44f9-4fe7-89a5-eca775360795" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">GrandParent</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="3" id="76c238a0-34bc-4819-901f-7f808dd80fd9" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+				<ACTION xsi:type="I18NItem">
+					<MULTILANGDATA>
+						<ELEMENT dkey="en_US">
+							<DVALUE xsi:type="string">Parent</DVALUE>
+						</ELEMENT>
+					</MULTILANGDATA>
+					<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+				</ACTION>
+				<TESTSTEP format-rev="3" id="b1d8f5d1-0bdf-495f-8855-67eb536463fd" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+					<ACTION xsi:type="I18NItem">
+						<MULTILANGDATA>
+							<ELEMENT dkey="en_US">
+								<DVALUE xsi:type="string">Child</DVALUE>
+							</ELEMENT>
+						</MULTILANGDATA>
+						<INITIAL-LANGUAGE xsi:type="string">en_US</INITIAL-LANGUAGE>
+					</ACTION>
+					<TESTSTEP format-rev="2" id="165453d7-2e25-4a3b-8156-06cf62f38a29" xsi:type="TsKeyword">
+						<TESTSTEP-TYPE xsi:type="integer">2</TESTSTEP-TYPE>
+						<INTERFACE-REF xsi:type="keywordInterfaceRef">
+							<ID xsi:type="integer">46063</ID>
+							<IS-ESTABLISH-INTERFACE-REF xsi:type="boolean">True</IS-ESTABLISH-INTERFACE-REF>
+						</INTERFACE-REF>
+						<ARGUMENTS>
+							<ARGUMENT xsi:type="TsKeywordArgument">
+								<IDENTIFIER xsi:type="string">7768</IDENTIFIER>
+								<VALUE xsi:type="expressionValue">
+									<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+										<VALUE xsi:type="integer">90652</VALUE>
+									</DATA>
+								</VALUE>
+							</ARGUMENT>
+						</ARGUMENTS>
+						<RETURNS>
+							<RETURN xsi:type="TsKeywordReturn">
+								<IDENTIFIER xsi:type="string">ID_KW_ACTIVITY</IDENTIFIER>
+								<EXPECTATION xsi:type="builtStringExpression">
+									<CASE-SENSITIVE xsi:type="boolean">False</CASE-SENSITIVE>
+									<BASE-EXPRESSION format-rev="2" xsi:type="keywordValueBaseExpression">
+										<VALUE xsi:type="integer">90659</VALUE>
+									</BASE-EXPRESSION>
+								</EXPECTATION>
+							</RETURN>
+						</RETURNS>
+					</TESTSTEP>
+				</TESTSTEP>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

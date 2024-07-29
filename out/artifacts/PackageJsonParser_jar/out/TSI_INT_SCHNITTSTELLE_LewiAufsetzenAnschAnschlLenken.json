@@ -1,0 +1,653 @@
+{
+  "Name": "TSI_INT_SCHNITTSTELLE_LewiAufsetzenAnschAnschlLenken",
+  "Id": "955533",
+  "Version": "0.1.0",
+  "Path": "C:\\src\\BK25_Workspace\\Packages\\TCI\\DD_TSP\\_TSI_overall\\R23-09\\TSI_INT_SCHNITTSTELLE_LewiAufsetzenAnschAnschlLenken.pkg",
+  "Steps": {
+    "[1] Precondition": {
+      "Line": 1,
+      "Type": "TsPreconditionBlock",
+      "Name": "Precondition",
+      "Steps": {
+        "[2] Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)": {
+          "Line": 2,
+          "Type": "TsKeyword",
+          "Name": "Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)",
+          "Parameter": {
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "8737": {
+              "Name": "CANoe_Config",
+              "Value": "'Default'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "8738": {
+              "Name": "ECU_List_Type",
+              "Value": "'EF_expanded'"
+            }
+          }
+        },
+        "[3] ### Precondition 01: EPS Multiturn verwerfen": {
+          "Line": 3,
+          "Type": "TsBlock",
+          "Name": "### Precondition 01: EPS Multiturn verwerfen",
+          "Steps": {
+            "[4] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 4,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Precondition 01: Reject EPS Multiturn ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[5] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 5,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[6] If('EPS_BO02' in api.GlobalConstants._STGListe)": {
+          "Line": 6,
+          "Type": "TsIfThenElse",
+          "Name": "If('EPS_BO02' in api.GlobalConstants._STGListe)",
+          "Condition": "'EPS_BO02' in api.GlobalConstants._STGListe",
+          "[7] Then": {
+            "Line": 7,
+            "Type": "Node",
+            "Name": "Then",
+            "Steps": {}
+          },
+          "[8] Else": {
+            "Line": 8,
+            "Type": "Node",
+            "Name": "Else",
+            "Steps": {
+              "[9] _check_EPS_Qualifier": {
+                "Line": 9,
+                "Type": "TsParallelPackageCall",
+                "Name": "_check_EPS_Qualifier"
+              }
+            }
+          }
+        },
+        "[10] Control: Multiturn EPS (Multiturn_EPS_TSP_EES25)": {
+          "Line": 10,
+          "Type": "TsKeyword",
+          "Name": "Control: Multiturn EPS (Multiturn_EPS_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'lose_over_power_saving_mode'"
+            }
+          }
+        },
+        "[11] Wait(5 s)": {
+          "Line": 11,
+          "Type": "TsWait",
+          "Name": "Wait(5 s)"
+        }
+      }
+    },
+    "[12] Action": {
+      "Line": 12,
+      "Type": "TsBlock",
+      "Name": "Action",
+      "Steps": {
+        "[13] ### Action 01: PWF Fahren": {
+          "Line": 13,
+          "Type": "TsBlock",
+          "Name": "### Action 01: PWF Fahren",
+          "Steps": {
+            "[14] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 14,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 01: PWF Driving ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[15] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 15,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'driving'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[16] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 16,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[17] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 17,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[18] If('EPS_BO02' in api.GlobalConstants._STGListe)": {
+          "Line": 18,
+          "Type": "TsIfThenElse",
+          "Name": "If('EPS_BO02' in api.GlobalConstants._STGListe)",
+          "Condition": "'EPS_BO02' in api.GlobalConstants._STGListe",
+          "[19] Then": {
+            "Line": 19,
+            "Type": "Node",
+            "Name": "Then",
+            "Steps": {
+              "[20] Read(QU_AVL_PO_EPS)": {
+                "Line": 20,
+                "Type": "TsRead",
+                "Name": "Read(QU_AVL_PO_EPS)",
+                "Signal": {
+                  "Name": "QU_AVL_PO_EPS",
+                  "Path": "A_FlexRay/EPS/SteeringSystemData2/SteeringSystemData2/QU_AVL_PO_EPS",
+                  "Category": "Steering_Wheel",
+                  "AccessType": "BUS",
+                  "SystemIdentifier": "A_FlexRay",
+                  "Pdu": "SteeringSystemData2",
+                  "Node": "EPS",
+                  "Frame": "SteeringSystemData2"
+                },
+                "Expectation": "value == 4"
+              },
+              "[21] Ergebnis letzter Schritt dokumentieren": {
+                "Line": 21,
+                "Type": "TsBlock",
+                "Name": "Ergebnis letzter Schritt dokumentieren",
+                "Steps": {
+                  "[22] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                    "Line": 22,
+                    "Type": "TsKeyword",
+                    "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                    "Parameter": {
+                      "67377": {
+                        "Name": "Activity",
+                        "Value": "'add'"
+                      },
+                      "67375": {
+                        "Name": "text",
+                        "Value": "'Offset loss detected; QU_AVL_PO_EPS = 0x%x' % qualifierEPS"
+                      },
+                      "67376": {
+                        "Name": "create_text",
+                        "Value": "'always'"
+                      },
+                      "67373": {
+                        "Name": "DateTimeMarker",
+                        "Value": "'write_date_time'"
+                      },
+                      "67374": {
+                        "Name": "read_relative_time",
+                        "Value": "'read_relative_time'"
+                      }
+                    }
+                  }
+                }
+              },
+              "[23] Comment": {
+                "Line": 23,
+                "Type": "TsComment",
+                "Name": "Comment"
+              }
+            }
+          },
+          "[24] Else": {
+            "Line": 24,
+            "Type": "Node",
+            "Name": "Else",
+            "Steps": {
+              "[25] If(qualifierEPS == 4.0)": {
+                "Line": 25,
+                "Type": "TsIfThenElse",
+                "Name": "If(qualifierEPS == 4.0)",
+                "Condition": "qualifierEPS == 4.0",
+                "[26] Then": {
+                  "Line": 26,
+                  "Type": "Node",
+                  "Name": "Then",
+                  "Steps": {
+                    "[27] Comment": {
+                      "Line": 27,
+                      "Type": "TsComment",
+                      "Name": "Comment"
+                    },
+                    "[28] Ergebnis letzter Schritt dokumentieren": {
+                      "Line": 28,
+                      "Type": "TsBlock",
+                      "Name": "Ergebnis letzter Schritt dokumentieren",
+                      "Steps": {
+                        "[29] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                          "Line": 29,
+                          "Type": "TsKeyword",
+                          "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                          "Parameter": {
+                            "67377": {
+                              "Name": "Activity",
+                              "Value": "'add'"
+                            },
+                            "67375": {
+                              "Name": "text",
+                              "Value": "'Offset loss detected; QU_AVL_PO_EPS = 0x%x' % qualifierEPS"
+                            },
+                            "67376": {
+                              "Name": "create_text",
+                              "Value": "'always'"
+                            },
+                            "67373": {
+                              "Name": "DateTimeMarker",
+                              "Value": "'write_date_time'"
+                            },
+                            "67374": {
+                              "Name": "read_relative_time",
+                              "Value": "'read_relative_time'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "[30] Else": {
+                  "Line": 30,
+                  "Type": "Node",
+                  "Name": "Else",
+                  "Steps": {
+                    "[31] Comment": {
+                      "Line": 31,
+                      "Type": "TsComment",
+                      "Name": "Comment"
+                    },
+                    "[32] Ergebnis letzter Schritt dokumentieren": {
+                      "Line": 32,
+                      "Type": "TsBlock",
+                      "Name": "Ergebnis letzter Schritt dokumentieren",
+                      "Steps": {
+                        "[33] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                          "Line": 33,
+                          "Type": "TsKeyword",
+                          "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                          "Parameter": {
+                            "67377": {
+                              "Name": "Activity",
+                              "Value": "'add'"
+                            },
+                            "67375": {
+                              "Name": "text",
+                              "Value": "'Offset loss not detected; QU_AVL_PO_EPS = 0x%x' % qualifierEPS"
+                            },
+                            "67376": {
+                              "Name": "create_text",
+                              "Value": "'always'"
+                            },
+                            "67373": {
+                              "Name": "DateTimeMarker",
+                              "Value": "'write_date_time'"
+                            },
+                            "67374": {
+                              "Name": "read_relative_time",
+                              "Value": "'read_relative_time'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "[34] Read(QU_AVL_PO_EPS)": {
+                "Line": 34,
+                "Type": "TsRead",
+                "Name": "Read(QU_AVL_PO_EPS)",
+                "Signal": {
+                  "Name": "QU_AVL_PO_EPS",
+                  "Path": "A_FlexRay/EPS/SteeringSystemData2/SteeringSystemData2/QU_AVL_PO_EPS",
+                  "Category": "Steering_Wheel",
+                  "AccessType": "BUS",
+                  "SystemIdentifier": "A_FlexRay",
+                  "Pdu": "SteeringSystemData2",
+                  "Node": "EPS",
+                  "Frame": "SteeringSystemData2"
+                },
+                "Expectation": "value == 2"
+              },
+              "[35] Ergebnis letzter Schritt dokumentieren": {
+                "Line": 35,
+                "Type": "TsBlock",
+                "Name": "Ergebnis letzter Schritt dokumentieren",
+                "Steps": {
+                  "[36] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                    "Line": 36,
+                    "Type": "TsKeyword",
+                    "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                    "Parameter": {
+                      "67377": {
+                        "Name": "Activity",
+                        "Value": "'add'"
+                      },
+                      "67375": {
+                        "Name": "text",
+                        "Value": "'For EPS TK-05: QU_AVL_PO_EPS Target-Value is 2 after short time: 0x%x' % qualifierEPS"
+                      },
+                      "67376": {
+                        "Name": "create_text",
+                        "Value": "'always'"
+                      },
+                      "67373": {
+                        "Name": "DateTimeMarker",
+                        "Value": "'write_date_time'"
+                      },
+                      "67374": {
+                        "Name": "read_relative_time",
+                        "Value": "'read_relative_time'"
+                      }
+                    }
+                  }
+                }
+              },
+              "[37] Comment": {
+                "Line": 37,
+                "Type": "TsComment",
+                "Name": "Comment"
+              }
+            }
+          }
+        },
+        "[38] ### Action 02: Anschlag-Anschlag-Lenken": {
+          "Line": 38,
+          "Type": "TsBlock",
+          "Name": "### Action 02: Anschlag-Anschlag-Lenken",
+          "Steps": {
+            "[39] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 39,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 02: Lock-to-lock steering ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[40] If('EPS_BO02' in api.GlobalConstants._STGListe)": {
+          "Line": 40,
+          "Type": "TsIfThenElse",
+          "Name": "If('EPS_BO02' in api.GlobalConstants._STGListe)",
+          "Condition": "'EPS_BO02' in api.GlobalConstants._STGListe",
+          "[41] Then": {
+            "Line": 41,
+            "Type": "Node",
+            "Name": "Then",
+            "Steps": {
+              "[42] Control: Endstop_Endstop steering (Steering_Endstop_Endstop_TSP_EES25)": {
+                "Line": 42,
+                "Type": "TsKeyword",
+                "Name": "Control: Endstop_Endstop steering (Steering_Endstop_Endstop_TSP_EES25)",
+                "Parameter": {
+                  "67592": {
+                    "Name": "Activity",
+                    "Value": "'run'"
+                  }
+                }
+              }
+            }
+          },
+          "[43] Else": {
+            "Line": 43,
+            "Type": "Node",
+            "Name": "Else",
+            "Steps": {
+              "[44] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+                "Line": 44,
+                "Type": "TsKeyword",
+                "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+                "Parameter": {
+                  "67384": {
+                    "Name": "text",
+                    "Value": "'Lock-to-lock steering is not performed for EPS TK-05.'"
+                  },
+                  "67385": {
+                    "Name": "Activity",
+                    "Value": "'add'"
+                  },
+                  "67382": {
+                    "Name": "DateTimeMarker",
+                    "Value": "'write_date_time'"
+                  },
+                  "67383": {
+                    "Name": "read_relative_time",
+                    "Value": "'dont_read_relative_time'"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "[45] Read(QU_AVL_PO_EPS)": {
+          "Line": 45,
+          "Type": "TsRead",
+          "Name": "Read(QU_AVL_PO_EPS)",
+          "Signal": {
+            "Name": "QU_AVL_PO_EPS",
+            "Path": "A_FlexRay/EPS/SteeringSystemData2/SteeringSystemData2/QU_AVL_PO_EPS",
+            "Category": "Steering_Wheel",
+            "AccessType": "BUS",
+            "SystemIdentifier": "A_FlexRay",
+            "Pdu": "SteeringSystemData2",
+            "Node": "EPS",
+            "Frame": "SteeringSystemData2"
+          },
+          "Expectation": "value null value in [1, 2]"
+        },
+        "[46] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 46,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[47] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 47,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'QU_AVL_PO_EPS should come with value 1 or 2, is: 0x%x' % qualifierEPS"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "[48] Postcondition": {
+      "Line": 48,
+      "Type": "TsPostconditionBlock",
+      "Name": "Postcondition",
+      "Steps": {
+        "[49] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 49,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[50] Control: Error_memory (Error_Memory_TSP_EES25)": {
+          "Line": 50,
+          "Type": "TsKeyword",
+          "Name": "Control: Error_memory (Error_Memory_TSP_EES25)",
+          "Parameter": {
+            "8783": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_ECU'"
+            },
+            "66820": {
+              "Name": "Filename_FS",
+              "Value": "'_'"
+            },
+            "66821": {
+              "Name": "FSDict",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'delete'"
+            }
+          }
+        },
+        "[51] Control: Info_memory (Info_memory_TSP_EES25)": {
+          "Line": 51,
+          "Type": "TsKeyword",
+          "Name": "Control: Info_memory (Info_memory_TSP_EES25)",
+          "Parameter": {
+            "8842": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_ECU'"
+            },
+            "66943": {
+              "Name": "filename_IS",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'delete'"
+            }
+          }
+        },
+        "[52] Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)": {
+          "Line": 52,
+          "Type": "TsKeyword",
+          "Name": "Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)",
+          "Parameter": {
+            "67397": {
+              "Name": "UserText",
+              "Value": "'_'"
+            },
+            "67398": {
+              "Name": "NewErrorsAfterTest",
+              "Value": "'new_errors_not_allowed'"
+            },
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "67395": {
+              "Name": "Traceanalysis",
+              "Value": "'no_traceanalysis'"
+            }
+          }
+        }
+      }
+    }
+  }
+}

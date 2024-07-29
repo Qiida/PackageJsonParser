@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2023.2.3.137736+c9272ee672d8" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="3" id="515" name="TsPrecondBlock" xsi:type="utility-fd32d18b-c16d-45ca-9934-f8bffe11fcc3">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Precondition</DVALUE>
+					</ELEMENT>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Precondition</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<ABORT-CONDITION xsi:type="string">ERROR_OR_FAILED</ABORT-CONDITION>
+			<TESTSTEP format-rev="1" id="da67d4d3-bcaa-4afd-a04b-4ddcf2e6d43f" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+				<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">Testschritt 1</VALUE>
+				</COMMENT-EXPRESSION>
+				<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+			</TESTSTEP>
+			<TESTSTEP format-rev="1" id="1b71f1cd-4f89-42f5-b2c8-bdf5890b7e6d" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+				<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">Testschritt2</VALUE>
+				</COMMENT-EXPRESSION>
+			</TESTSTEP>
+			<TESTSTEP format-rev="1" id="0a25b04c-abf2-4d2c-a077-adace37f4fdf" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+				<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">PWF wurde über Diagnose hergestellt</VALUE>
+				</COMMENT-EXPRESSION>
+				<COMMENT-VERDICT xsi:type="string">INCONCLUSIVE</COMMENT-VERDICT>
+			</TESTSTEP>
+			<OVERRIDE-RESULT-OPTION xsi:type="string">FAILED_TO_ERROR</OVERRIDE-RESULT-OPTION>
+		</TESTSTEP>
+		<TESTSTEP format-rev="3" id="521" name="TsBlock" xsi:type="utility-2752ad1e-4fef-11dc-81d4-0013728784ee">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Action</DVALUE>
+					</ELEMENT>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Action</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<TESTSTEP format-rev="1" id="d622b070-0485-45f0-bd70-3b0fde9a3da4" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+				<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">Action war erfolgreich</VALUE>
+				</COMMENT-EXPRESSION>
+				<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+			</TESTSTEP>
+		</TESTSTEP>
+		<TESTSTEP format-rev="2" id="517" name="TsPostcondBlock" xsi:type="utility-0d2ac4dc-1d8f-4182-81d1-a5d5ca74a44f">
+			<ACTION xsi:type="I18NItem">
+				<MULTILANGDATA>
+					<ELEMENT dkey="de_DE">
+						<DVALUE xsi:type="string">Postcondition</DVALUE>
+					</ELEMENT>
+					<ELEMENT dkey="en_US">
+						<DVALUE xsi:type="string">Postcondition</DVALUE>
+					</ELEMENT>
+				</MULTILANGDATA>
+				<INITIAL-LANGUAGE xsi:type="string">de_DE</INITIAL-LANGUAGE>
+			</ACTION>
+			<EFFECT-TEST-RESULT xsi:type="boolean">False</EFFECT-TEST-RESULT>
+			<TESTSTEP format-rev="1" id="01cd87a2-592d-4bb9-a109-f53f2d5c3180" name="TsComment" xsi:type="utility-1f4de951-4fef-11dc-969a-0013728784ee">
+				<COMMENT-EXPRESSION format-rev="2" xsi:type="valueBaseExpression">
+					<VALUE xsi:type="string">Postcondition war erfolgreich</VALUE>
+				</COMMENT-EXPRESSION>
+				<COMMENT-VERDICT xsi:type="string">SUCCESS</COMMENT-VERDICT>
+			</TESTSTEP>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

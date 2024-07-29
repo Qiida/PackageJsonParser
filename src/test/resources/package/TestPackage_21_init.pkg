@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2023.2.3.137736+c9272ee672d8" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP id="ed4af870-04fd-4ee8-8be2-b3f43741d955" name="TsWait" xsi:type="utility-62d5a961-4fef-11dc-9944-0013728784ee">
+			<TIME format-rev="2" xsi:type="valueBaseExpression">
+				<VALUE xsi:type="integer">50</VALUE>
+			</TIME>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

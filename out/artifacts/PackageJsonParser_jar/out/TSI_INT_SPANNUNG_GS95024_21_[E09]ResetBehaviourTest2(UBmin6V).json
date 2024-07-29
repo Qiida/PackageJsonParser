@@ -1,0 +1,604 @@
+{
+  "Name": "TSI_INT_SPANNUNG_GS95024_21_[E09]ResetBehaviourTest2(UBmin6V)",
+  "Id": "971094",
+  "Version": "0.1.0",
+  "Path": "C:\\src\\BK25_Workspace\\Packages\\TCI\\DD_TSP\\_TSI_overall\\R23-09\\TSI_INT_SPANNUNG_GS95024_21_[E09]ResetBehaviourTest2(UBmin6V).pkg",
+  "Steps": {
+    "[1] Precondition": {
+      "Line": 1,
+      "Type": "TsPreconditionBlock",
+      "Name": "Precondition",
+      "Steps": {
+        "[2] Control: allowed_DTCs voltage_test (Voltage_Test_Allowed_DTCs_TSP_EES25)": {
+          "Line": 2,
+          "Type": "TsKeyword",
+          "Name": "Control: allowed_DTCs voltage_test (Voltage_Test_Allowed_DTCs_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'define'"
+            }
+          }
+        },
+        "[3] Control: curve voltage_test (Curve_Voltage_Test_TSP_EES25)": {
+          "Line": 3,
+          "Type": "TsKeyword",
+          "Name": "Control: curve voltage_test (Curve_Voltage_Test_TSP_EES25)",
+          "Parameter": {
+            "67640": {
+              "Name": "voltage_curve",
+              "Value": "'GS95024-2-1-[E-09]ResetBehaviour-Test2(UBmin6V)'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'define'"
+            }
+          }
+        },
+        "[4] Control: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)": {
+          "Line": 4,
+          "Type": "TsKeyword",
+          "Name": "Control: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)",
+          "Parameter": {
+            "68200": {
+              "Name": "gradient",
+              "Value": "0.0"
+            },
+            "8514": {
+              "Name": "Steering_Wheel_Angle",
+              "Value": "0"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'to_the_left'"
+            }
+          }
+        },
+        "[5] Control: Brake Pedal with (Pedal_Brake_with_TSP_EES25)": {
+          "Line": 5,
+          "Type": "TsKeyword",
+          "Name": "Control: Brake Pedal with (Pedal_Brake_with_TSP_EES25)",
+          "Parameter": {
+            "8814": {
+              "Name": "percentage",
+              "Value": "0"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'actuate'"
+            }
+          }
+        },
+        "[6] Establish: alternator EMTester (Alternator_EMTester_TSP_EES25)": {
+          "Line": 6,
+          "Type": "TsKeyword",
+          "Name": "Establish: alternator EMTester (Alternator_EMTester_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == [Tester_1, Tester_1a, Tester_1b, Tester_2]"
+        },
+        "[7] Establish: alternator EMTester Outputs (Alternator_EMTester_Outputs_TSP_EES25)": {
+          "Line": 7,
+          "Type": "TsKeyword",
+          "Name": "Establish: alternator EMTester Outputs (Alternator_EMTester_Outputs_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'checked'"
+        },
+        "[8] Establish: ECUs voltage_test (ECUs_Voltage_Test_TSP_EES25)": {
+          "Line": 8,
+          "Type": "TsKeyword",
+          "Name": "Establish: ECUs voltage_test (ECUs_Voltage_Test_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'selected'"
+        },
+        "[9] Establish: jumper test_bench (Test_Bench_Jumper_TSP_EES25)": {
+          "Line": 9,
+          "Type": "TsKeyword",
+          "Name": "Establish: jumper test_bench (Test_Bench_Jumper_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'correct'"
+        },
+        "[10] Control: voltage_curve voltage_test variables_and_allowed_errors (Voltage_Test_Voltage_Curve_Variables_And_Allowed_Errors_TSP_EES25)": {
+          "Line": 10,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test variables_and_allowed_errors (Voltage_Test_Voltage_Curve_Variables_And_Allowed_Errors_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'define'"
+            }
+          }
+        },
+        "[11] Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)": {
+          "Line": 11,
+          "Type": "TsKeyword",
+          "Name": "Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)",
+          "Parameter": {
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "8737": {
+              "Name": "CANoe_Config",
+              "Value": "'Default'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "8738": {
+              "Name": "ECU_List_Type",
+              "Value": "'100_Percent_EF'"
+            }
+          }
+        }
+      }
+    },
+    "[12] Action": {
+      "Line": 12,
+      "Type": "TsBlock",
+      "Name": "Action",
+      "Steps": {
+        "[13] Teststatus Anzeigen": {
+          "Line": 13,
+          "Type": "TsBlock",
+          "Name": "Teststatus Anzeigen",
+          "Steps": {
+            "[14] _Anzeige_TestStatus": {
+              "Line": 14,
+              "Type": "TsParallelPackageCall",
+              "Name": "_Anzeige_TestStatus"
+            }
+          }
+        },
+        "[15] Control: global_logging CANoe (CANoe_Global_Logging_TSP_EES25)": {
+          "Line": 15,
+          "Type": "TsKeyword",
+          "Name": "Control: global_logging CANoe (CANoe_Global_Logging_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            }
+          }
+        },
+        "[16] Control: voltage_curve voltage_test (Voltage_Test_Voltage_Curve_TSP_EES25)": {
+          "Line": 16,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test (Voltage_Test_Voltage_Curve_TSP_EES25)",
+          "Parameter": {
+            "67649": {
+              "Name": "Activity",
+              "Value": "'prepare'"
+            }
+          }
+        },
+        "[17] Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)": {
+          "Line": 17,
+          "Type": "TsKeyword",
+          "Name": "Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)",
+          "Parameter": {
+            "68589": {
+              "Name": "operational_readiness_EF_interconnetion",
+              "Value": "'full_system'"
+            }
+          },
+          "Expectation": "value == 'active'"
+        },
+        "[18] Control: Bus_rest (Bus_Rest_TSP_EES25)": {
+          "Line": 18,
+          "Type": "TsKeyword",
+          "Name": "Control: Bus_rest (Bus_Rest_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[19] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 19,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[20] Control: Error_memory (Error_Memory_TSP_EES25)": {
+          "Line": 20,
+          "Type": "TsKeyword",
+          "Name": "Control: Error_memory (Error_Memory_TSP_EES25)",
+          "Parameter": {
+            "8783": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_ECU'"
+            },
+            "66820": {
+              "Name": "Filename_FS",
+              "Value": "'Fehlerspeicher_aller_STG_vor_Spannungskurve'"
+            },
+            "66821": {
+              "Name": "FSDict",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'read_and_save'"
+            }
+          }
+        },
+        "[21] Control: Error_memory (Error_Memory_TSP_EES25)": {
+          "Line": 21,
+          "Type": "TsKeyword",
+          "Name": "Control: Error_memory (Error_Memory_TSP_EES25)",
+          "Parameter": {
+            "8783": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_relevant_ECU'"
+            },
+            "66820": {
+              "Name": "Filename_FS",
+              "Value": "'Fehlerspeicher_vor_Spannungskurve'"
+            },
+            "66821": {
+              "Name": "FSDict",
+              "Value": "'Fehlerspeicher_vor_Spannungskurve'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'read_and_save'"
+            }
+          }
+        },
+        "[22] Control: Info_memory (Info_memory_TSP_EES25)": {
+          "Line": 22,
+          "Type": "TsKeyword",
+          "Name": "Control: Info_memory (Info_memory_TSP_EES25)",
+          "Parameter": {
+            "8842": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_relevant_ECU'"
+            },
+            "66943": {
+              "Name": "filename_IS",
+              "Value": "'Infospeicher_vor_Spannungskurve'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'read_and_save'"
+            }
+          }
+        },
+        "[23] Control: DTC_list_to OverViewFile (OverViewFile_DTC_List_to_TSP_EES25)": {
+          "Line": 23,
+          "Type": "TsKeyword",
+          "Name": "Control: DTC_list_to OverViewFile (OverViewFile_DTC_List_to_TSP_EES25)",
+          "Parameter": {
+            "67369": {
+              "Name": "DateTimeMarker",
+              "Value": "'write_date_time'"
+            },
+            "67370": {
+              "Name": "Header",
+              "Value": "'Fehlerspeicher_vor_Spannungskurve'"
+            },
+            "67371": {
+              "Name": "FSDict",
+              "Value": "'Fehlerspeicher_vor_Spannungskurve'"
+            },
+            "67372": {
+              "Name": "Activity",
+              "Value": "'add'"
+            }
+          }
+        },
+        "[24] Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)": {
+          "Line": 24,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)",
+          "Parameter": {
+            "67645": {
+              "Name": "Activity",
+              "Value": "'if_MLA_test'"
+            }
+          }
+        },
+        "[25] Control: qualifier voltage_test (Voltage_Test_Qualifier_TSP_EES25)": {
+          "Line": 25,
+          "Type": "TsKeyword",
+          "Name": "Control: qualifier voltage_test (Voltage_Test_Qualifier_TSP_EES25)",
+          "Parameter": {
+            "67643": {
+              "Name": "Activity",
+              "Value": "'read_before'"
+            }
+          }
+        },
+        "[26] Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)": {
+          "Line": 26,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)",
+          "Parameter": {
+            "67645": {
+              "Name": "Activity",
+              "Value": "'prepare_if_MSM_or_MSA_test'"
+            }
+          }
+        },
+        "[27] Control: voltage_curve EMTester (EMTester_Voltage_Curve_TSP_EES25)": {
+          "Line": 27,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve EMTester (EMTester_Voltage_Curve_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'perform'"
+            }
+          }
+        },
+        "[28] Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)": {
+          "Line": 28,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)",
+          "Parameter": {
+            "67645": {
+              "Name": "Activity",
+              "Value": "'if_MSM_or_MSA_test'"
+            }
+          }
+        },
+        "[29] Control: voltage_curve EMTester (EMTester_Voltage_Curve_TSP_EES25)": {
+          "Line": 29,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve EMTester (EMTester_Voltage_Curve_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'wait_for_end_of_curve'"
+            }
+          }
+        },
+        "[30] Wait(1 s)": {
+          "Line": 30,
+          "Type": "TsWait",
+          "Name": "Wait(1 s)"
+        },
+        "[31] Establish: voltage_curve voltage_test vehicle_mode (Voltage_Test_Voltage_Curve_Vehicle_Mode_TSP_EES25)": {
+          "Line": 31,
+          "Type": "TsKeyword",
+          "Name": "Establish: voltage_curve voltage_test vehicle_mode (Voltage_Test_Voltage_Curve_Vehicle_Mode_TSP_EES25)",
+          "Parameter": {
+            "67647": {
+              "Name": "PWF_voltage_test",
+              "Value": "'like_before_curve'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[32] Wait(5 s)": {
+          "Line": 32,
+          "Type": "TsWait",
+          "Name": "Wait(5 s)"
+        },
+        "[33] Status: qualifier voltage_test (Voltage_Test_Qualifier_TSP_EES25)": {
+          "Line": 33,
+          "Type": "TsKeyword",
+          "Name": "Status: qualifier voltage_test (Voltage_Test_Qualifier_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'after_ok'"
+        },
+        "[34] Control: Error_memory (Error_Memory_TSP_EES25)": {
+          "Line": 34,
+          "Type": "TsKeyword",
+          "Name": "Control: Error_memory (Error_Memory_TSP_EES25)",
+          "Parameter": {
+            "8783": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_ECU'"
+            },
+            "66820": {
+              "Name": "Filename_FS",
+              "Value": "'Fehlerspeicher_aller_STG_nach_Spannungskurve'"
+            },
+            "66821": {
+              "Name": "FSDict",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'read_and_save'"
+            }
+          }
+        },
+        "[35] Control: Error_memory (Error_Memory_TSP_EES25)": {
+          "Line": 35,
+          "Type": "TsKeyword",
+          "Name": "Control: Error_memory (Error_Memory_TSP_EES25)",
+          "Parameter": {
+            "8783": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_relevant_ECU'"
+            },
+            "66820": {
+              "Name": "Filename_FS",
+              "Value": "'Fehlerspeicher_nach_Spannungskurve'"
+            },
+            "66821": {
+              "Name": "FSDict",
+              "Value": "'Fehlerspeicher_nach_Spannungskurve'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'read_and_save'"
+            }
+          }
+        },
+        "[36] Control: Info_memory (Info_memory_TSP_EES25)": {
+          "Line": 36,
+          "Type": "TsKeyword",
+          "Name": "Control: Info_memory (Info_memory_TSP_EES25)",
+          "Parameter": {
+            "8842": {
+              "Name": "name_of_ECU",
+              "Value": "'of_every_ECU'"
+            },
+            "66943": {
+              "Name": "filename_IS",
+              "Value": "'Infospeicher_nach_Spannungskurve'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'read_and_save'"
+            }
+          }
+        },
+        "[37] Control: global_logging CANoe (CANoe_Global_Logging_TSP_EES25)": {
+          "Line": 37,
+          "Type": "TsKeyword",
+          "Name": "Control: global_logging CANoe (CANoe_Global_Logging_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'stop'"
+            }
+          }
+        },
+        "[38] Wait(3 s)": {
+          "Line": 38,
+          "Type": "TsWait",
+          "Name": "Wait(3 s)"
+        },
+        "[39] Control: Logging_files CANoe (CANoe_Logging_Files_TSP_EES25)": {
+          "Line": 39,
+          "Type": "TsKeyword",
+          "Name": "Control: Logging_files CANoe (CANoe_Logging_Files_TSP_EES25)",
+          "Parameter": {
+            "8798": {
+              "Name": "WriteDateInFront",
+              "Value": "'do_not_write_date'"
+            },
+            "8799": {
+              "Name": "DestinationDir",
+              "Value": "'_TracePath'"
+            },
+            "8800": {
+              "Name": "Add_FileName",
+              "Value": "'_'"
+            },
+            "8801": {
+              "Name": "LastTriggerFile",
+              "Value": "'actual_Trigger'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'copy'"
+            }
+          }
+        },
+        "[40] Control: global_logging CANoe (CANoe_Global_Logging_TSP_EES25)": {
+          "Line": 40,
+          "Type": "TsKeyword",
+          "Name": "Control: global_logging CANoe (CANoe_Global_Logging_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            }
+          }
+        },
+        "[41] Control: voltage_curve voltage_test reports (Voltage_Test_Voltage_Curve_Reports_TSP_EES25)": {
+          "Line": 41,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test reports (Voltage_Test_Voltage_Curve_Reports_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'write'"
+            }
+          }
+        },
+        "[42] Control: system_healing voltage_test (Voltage_Test_System_Healing_TSP_EES25)": {
+          "Line": 42,
+          "Type": "TsKeyword",
+          "Name": "Control: system_healing voltage_test (Voltage_Test_System_Healing_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'execute_when_an_error_occurs'"
+            }
+          }
+        },
+        "[43] Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)": {
+          "Line": 43,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test engine_start (Voltage_Test_Voltage_Curve_Engine_Start_TSP_EES25)",
+          "Parameter": {
+            "67645": {
+              "Name": "Activity",
+              "Value": "'postprocess_if_MSM_or_MSA_test'"
+            }
+          }
+        },
+        "[44] Control: voltage_curve voltage_test (Voltage_Test_Voltage_Curve_TSP_EES25)": {
+          "Line": 44,
+          "Type": "TsKeyword",
+          "Name": "Control: voltage_curve voltage_test (Voltage_Test_Voltage_Curve_TSP_EES25)",
+          "Parameter": {
+            "67649": {
+              "Name": "Activity",
+              "Value": "'postprocess'"
+            }
+          }
+        },
+        "[45] Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)": {
+          "Line": 45,
+          "Type": "TsKeyword",
+          "Name": "Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)",
+          "Parameter": {
+            "67397": {
+              "Name": "UserText",
+              "Value": "'_'"
+            },
+            "67398": {
+              "Name": "NewErrorsAfterTest",
+              "Value": "'new_errors_not_allowed'"
+            },
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "67395": {
+              "Name": "Traceanalysis",
+              "Value": "'no_traceanalysis'"
+            }
+          }
+        }
+      }
+    },
+    "[46] Postcondition": {
+      "Line": 46,
+      "Type": "TsPostconditionBlock",
+      "Name": "Postcondition",
+      "Steps": {
+        "[47] Control: end_of_test EMTester (End_of_Test_EMTester_TSP_EES25)": {
+          "Line": 47,
+          "Type": "TsKeyword",
+          "Name": "Control: end_of_test EMTester (End_of_Test_EMTester_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'show'"
+            }
+          }
+        }
+      }
+    }
+  }
+}

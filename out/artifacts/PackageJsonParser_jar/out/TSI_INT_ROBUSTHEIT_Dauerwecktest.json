@@ -1,0 +1,73 @@
+{
+  "Name": "TSI_INT_ROBUSTHEIT_Dauerwecktest",
+  "Id": "964785",
+  "Version": "0.2.0",
+  "Path": "C:\\src\\BK25_Workspace\\Packages\\TCI\\DD_TSP\\_TSI_overall\\R23-09\\TSI_INT_ROBUSTHEIT_Dauerwecktest.pkg",
+  "Steps": {
+    "[1] Precondition": {
+      "Line": 1,
+      "Type": "TsPreconditionBlock",
+      "Name": "Precondition",
+      "Steps": {
+        "[2] Precondition Dauerwecktest:\nVariablen initialisieren\nSGBD Liste ermitteln\nOverview Datei erstellen\nPrüfstand Initialisieren\nInit Fehler nach Sleep ermitteln\nFS/IS löschen": {
+          "Line": 2,
+          "Type": "TsBlock",
+          "Name": "Precondition Dauerwecktest:\nVariablen initialisieren\nSGBD Liste ermitteln\nOverview Datei erstellen\nPrüfstand Initialisieren\nInit Fehler nach Sleep ermitteln\nFS/IS löschen",
+          "Steps": {
+            "[3] Precondition_Dauerwecktest": {
+              "Line": 3,
+              "Type": "TsPackageCall",
+              "Name": "Precondition_Dauerwecktest"
+            }
+          }
+        }
+      }
+    },
+    "[4] Action": {
+      "Line": 4,
+      "Type": "TsBlock",
+      "Name": "Action",
+      "Steps": {
+        "[5] Endlosschleife:\nSystem in schlafbereiten Zustand setzten (Parken)\nNM Off abwarten (letzte NetworkManagement-Botschaft des ZGWs abwarten)\nWecken (Übergang nach PAD oder Fahren) mit variablen Wartezeiten\nFS/IS lesen\nOverview und Zusammenfassung schreiben\nCopy Bus Trace wenn neue Ereignisse\nFS/IS löschen\nVariablen updaten\nTime, User oder DTC Abbruch": {
+          "Line": 5,
+          "Type": "TsBlock",
+          "Name": "Endlosschleife:\nSystem in schlafbereiten Zustand setzten (Parken)\nNM Off abwarten (letzte NetworkManagement-Botschaft des ZGWs abwarten)\nWecken (Übergang nach PAD oder Fahren) mit variablen Wartezeiten\nFS/IS lesen\nOverview und Zusammenfassung schreiben\nCopy Bus Trace wenn neue Ereignisse\nFS/IS löschen\nVariablen updaten\nTime, User oder DTC Abbruch",
+          "Steps": {
+            "[6] Loop(10000)": {
+              "Line": 6,
+              "Type": "TsLoop",
+              "Name": "Loop(10000)",
+              "Steps": {
+                "[7] Doku_TSI_INT_ROBUSTHEIT_Dauerwecktest": {
+                  "Line": 7,
+                  "Type": "TsPackageCall",
+                  "Name": "Doku_TSI_INT_ROBUSTHEIT_Dauerwecktest"
+                }
+              },
+              "Count": "10000"
+            }
+          }
+        }
+      }
+    },
+    "[8] Postcondition": {
+      "Line": 8,
+      "Type": "TsPostconditionBlock",
+      "Name": "Postcondition",
+      "Steps": {
+        "[9] Postcondition Dauerwecktest:\nStatistik der Fehler dokumentieren\nPrüfstand deinitialisieren": {
+          "Line": 9,
+          "Type": "TsBlock",
+          "Name": "Postcondition Dauerwecktest:\nStatistik der Fehler dokumentieren\nPrüfstand deinitialisieren",
+          "Steps": {
+            "[10] Postcondition_Dauerwecktest": {
+              "Line": 10,
+              "Type": "TsPackageCall",
+              "Name": "Postcondition_Dauerwecktest"
+            }
+          }
+        }
+      }
+    }
+  }
+}

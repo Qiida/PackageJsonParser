@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2023.4.1.143870+18e79db1bdac" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace">
+		<MAPPING-ITEM format-rev="2" xsi:type="mappingItem">
+			<ID xsi:type="string">[DISP]__[MDL]__[Brakepedal]__[BrakeOnOff]__[-]__[-]</ID>
+			<XACCESS format-rev="2" xsi:type="xaModelValueVariable">
+				<MAPPING-ENUM xsi:type="vtabInfoEmpty"/>
+				<VARIABLE-PATH xsi:type="string">slave_eAppl/Model Root/Simulator_Interface/output_mapping/feedthrough/Display/virtuell.Brakepedal.BrakeOnOff/Out1</VARIABLE-PATH>
+			</XACCESS>
+			<CATEGORY xsi:type="string">[Brakepedal]</CATEGORY>
+		</MAPPING-ITEM>
+	</MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP id="f4c1652b-a285-4c29-a23b-c9e63d999e6e" xsi:type="tsRead">
+			<MAPPING-REF xsi:type="string">[DISP]__[MDL]__[Brakepedal]__[BrakeOnOff]__[-]__[-]</MAPPING-REF>
+			<EXPECTATION xsi:type="timelessOption">
+				<EXPRESSION xsi:type="presentExpression"/>
+			</EXPECTATION>
+			<METRIC format-rev="1" xsi:type="metricInfo">
+				<VALUE-TYPE xsi:type="string">PHYS</VALUE-TYPE>
+				<DATA-TYPE xsi:type="string">VALUE</DATA-TYPE>
+			</METRIC>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

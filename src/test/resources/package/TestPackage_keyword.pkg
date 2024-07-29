@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PACKAGE format-rev="7" prog-version="2023.4.1.143870+18e79db1bdac" xmlns="http://www.tracetronic.de/xml/ecu-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tracetronic.de/xml/ecu-test package.xsd">
+	<INFORMATION format-rev="2" xsi:type="packageInfo">
+		<DESCRIPTION xsi:type="string"/>
+		<VERSION xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-ACTION-FIELD-TEMPLATE xsi:type="string"/>
+		<ALTERNATE-CALL-REPRESENTATION-EXPECTATION-FIELD-TEMPLATE xsi:type="string"/>
+	</INFORMATION>
+	<MAPPING format-rev="1" xsi:type="localMappingSpace"/>
+	<LOCAL-MAPPING xsi:type="localMapping">
+		<MAPPING format-rev="1" xsi:type="mapping">
+			<INTERFACE-REF xsi:type="keywordInterfaceRef">
+				<ID xsi:type="integer">35241</ID>
+			</INTERFACE-REF>
+		</MAPPING>
+		<MAPPING format-rev="1" xsi:type="mapping">
+			<INTERFACE-REF xsi:type="keywordInterfaceRef">
+				<ID xsi:type="integer">35443</ID>
+			</INTERFACE-REF>
+		</MAPPING>
+		<MAPPING format-rev="1" xsi:type="mapping">
+			<INTERFACE-REF xsi:type="keywordInterfaceRef">
+				<ID xsi:type="integer">42069</ID>
+			</INTERFACE-REF>
+		</MAPPING>
+	</LOCAL-MAPPING>
+	<TESTSTEPS xsi:type="testCase">
+		<TESTSTEP format-rev="2" id="dce35271-1053-476c-bdfe-4795a5794d7f" xsi:type="TsKeyword">
+			<TESTSTEP-TYPE xsi:type="integer">1</TESTSTEP-TYPE>
+			<INTERFACE-REF xsi:type="keywordInterfaceRef">
+				<ID xsi:type="integer">35241</ID>
+			</INTERFACE-REF>
+			<ARGUMENTS>
+				<ARGUMENT xsi:type="TsKeywordArgument">
+					<IDENTIFIER xsi:type="string">8737</IDENTIFIER>
+					<VALUE xsi:type="expressionValue">
+						<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+							<VALUE xsi:type="integer">100096</VALUE>
+						</DATA>
+					</VALUE>
+				</ARGUMENT>
+				<ARGUMENT xsi:type="TsKeywordArgument">
+					<IDENTIFIER xsi:type="string">8738</IDENTIFIER>
+					<VALUE xsi:type="expressionValue">
+						<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+							<VALUE xsi:type="integer">100100</VALUE>
+						</DATA>
+					</VALUE>
+				</ARGUMENT>
+				<ARGUMENT xsi:type="TsKeywordArgument">
+					<IDENTIFIER xsi:type="string">8731</IDENTIFIER>
+					<VALUE xsi:type="expressionValue">
+						<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+							<VALUE xsi:type="integer">98003</VALUE>
+						</DATA>
+					</VALUE>
+				</ARGUMENT>
+				<ARGUMENT xsi:type="TsKeywordArgument">
+					<IDENTIFIER xsi:type="string">ID_KW_ACTIVITY</IDENTIFIER>
+					<VALUE xsi:type="expressionValue">
+						<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+							<VALUE xsi:type="integer">97996</VALUE>
+						</DATA>
+					</VALUE>
+				</ARGUMENT>
+			</ARGUMENTS>
+			<RETURNS/>
+		</TESTSTEP>
+		<TESTSTEP format-rev="2" id="eb79f284-db66-4c3f-b3f1-806dbccb574b" xsi:type="TsKeyword">
+			<TESTSTEP-TYPE xsi:type="integer">0</TESTSTEP-TYPE>
+			<INTERFACE-REF xsi:type="keywordInterfaceRef">
+				<ID xsi:type="integer">35443</ID>
+			</INTERFACE-REF>
+			<ARGUMENTS>
+				<ARGUMENT xsi:type="TsKeywordArgument">
+					<IDENTIFIER xsi:type="string">66265</IDENTIFIER>
+					<VALUE xsi:type="expressionValue">
+						<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+							<VALUE xsi:type="integer">100975</VALUE>
+						</DATA>
+					</VALUE>
+				</ARGUMENT>
+			</ARGUMENTS>
+			<RETURNS>
+				<RETURN xsi:type="TsKeywordReturn">
+					<IDENTIFIER xsi:type="string">66266</IDENTIFIER>
+					<EXPECTATION xsi:type="builtNumericExpression">
+						<RELATION xsi:type="string">==</RELATION>
+						<VALUE format-rev="2" xsi:type="valueBaseExpression">
+							<VALUE xsi:type="integer">100</VALUE>
+						</VALUE>
+						<TOLERANCE style="absolute-value" xsi:type="Tolerance">
+							<VALUE format-rev="2" xsi:type="valueBaseExpression">
+								<VALUE xsi:type="integer">15</VALUE>
+							</VALUE>
+						</TOLERANCE>
+					</EXPECTATION>
+				</RETURN>
+			</RETURNS>
+		</TESTSTEP>
+		<TESTSTEP format-rev="2" id="83b4df0b-1692-4249-960e-22b5629b7517" xsi:type="TsKeyword">
+			<TESTSTEP-TYPE xsi:type="integer">1</TESTSTEP-TYPE>
+			<INTERFACE-REF xsi:type="keywordInterfaceRef">
+				<ID xsi:type="integer">42069</ID>
+			</INTERFACE-REF>
+			<ARGUMENTS>
+				<ARGUMENT xsi:type="TsKeywordArgument">
+					<IDENTIFIER xsi:type="string">7768</IDENTIFIER>
+					<VALUE xsi:type="expressionValue">
+						<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+							<VALUE xsi:type="integer">90652</VALUE>
+						</DATA>
+					</VALUE>
+				</ARGUMENT>
+				<ARGUMENT xsi:type="TsKeywordArgument">
+					<IDENTIFIER xsi:type="string">ID_KW_ACTIVITY</IDENTIFIER>
+					<VALUE xsi:type="expressionValue">
+						<DATA format-rev="2" xsi:type="keywordValueBaseExpression">
+							<VALUE xsi:type="integer">90597</VALUE>
+						</DATA>
+					</VALUE>
+				</ARGUMENT>
+			</ARGUMENTS>
+			<RETURNS/>
+		</TESTSTEP>
+	</TESTSTEPS>
+</PACKAGE>

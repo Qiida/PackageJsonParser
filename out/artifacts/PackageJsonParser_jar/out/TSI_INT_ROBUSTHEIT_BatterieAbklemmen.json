@@ -1,0 +1,2202 @@
+{
+  "Name": "TSI_INT_ROBUSTHEIT_BatterieAbklemmen",
+  "Id": "964784",
+  "Version": "0.1.0",
+  "Path": "C:\\src\\BK25_Workspace\\Packages\\TCI\\DD_TSP\\_TSI_overall\\R23-09\\TSI_INT_ROBUSTHEIT_BatterieAbklemmen.pkg",
+  "Steps": {
+    "[1] Precondition": {
+      "Line": 1,
+      "Type": "TsPreconditionBlock",
+      "Name": "Precondition",
+      "Steps": {
+        "[2] Comment": {
+          "Line": 2,
+          "Type": "TsComment",
+          "Name": "Comment"
+        },
+        "[4] Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)": {
+          "Line": 4,
+          "Type": "TsKeyword",
+          "Name": "Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)",
+          "Parameter": {
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "8737": {
+              "Name": "CANoe_Config",
+              "Value": "'Default'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "8738": {
+              "Name": "ECU_List_Type",
+              "Value": "'EF_expanded'"
+            }
+          }
+        },
+        "[5] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 5,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'driving'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[6] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 6,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[7] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 7,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[8] Wait(5 s)": {
+          "Line": 8,
+          "Type": "TsWait",
+          "Name": "Wait(5 s)"
+        },
+        "[9] ### Precondition 01: FES auf Komfort/Komfort+ stellen.": {
+          "Line": 9,
+          "Type": "TsBlock",
+          "Name": "### Precondition 01: FES auf Komfort/Komfort+ stellen.",
+          "Steps": {
+            "[10] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 10,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Precondition 01: Set FES to Comfort/Comfort+ ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[11] Comment": {
+          "Line": 11,
+          "Type": "TsComment",
+          "Name": "Comment"
+        },
+        "[15] ### Precondition 02: Gang in Neutralpositition bringen": {
+          "Line": 15,
+          "Type": "TsBlock",
+          "Name": "### Precondition 02: Gang in Neutralpositition bringen",
+          "Steps": {
+            "[16] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 16,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Precondition 02: Put gear in neutral position ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[17] Establish: Stage_Drive (Stage_Drive_TSP_EES25)": {
+          "Line": 17,
+          "Type": "TsKeyword",
+          "Name": "Establish: Stage_Drive (Stage_Drive_TSP_EES25)",
+          "Parameter": {
+            "7757": {
+              "Name": "status_stage_drive",
+              "Value": "'N'"
+            }
+          },
+          "Expectation": "value == 'is_inserted'"
+        },
+        "[18] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 18,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[19] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 19,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[20] ### Precondition 03: EMF (sofern verbaut) anziehen AHV (sofern verbaut) ausschwenken": {
+          "Line": 20,
+          "Type": "TsBlock",
+          "Name": "### Precondition 03: EMF (sofern verbaut) anziehen AHV (sofern verbaut) ausschwenken",
+          "Steps": {
+            "[21] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 21,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Precondition 03: Apply EMF (if installed) AHV (if installed) swing out ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[22] Establish: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 22,
+          "Type": "TsKeyword",
+          "Name": "Establish: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_applied'"
+        },
+        "[23] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 23,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[24] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 24,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[25] ### Precondition 04: alle Stellungen der Aktorik bzw. Einstellungen erfassen: Position der EMF, Anhängerschwenkvorrichtung, Lenkungsposition, Stellgrößen der Überlagerungslenkung (sofern entsprechendes System im Fzg/Baureihe verbaut)": {
+          "Line": 25,
+          "Type": "TsBlock",
+          "Name": "### Precondition 04: alle Stellungen der Aktorik bzw. Einstellungen erfassen: Position der EMF, Anhängerschwenkvorrichtung, Lenkungsposition, Stellgrößen der Überlagerungslenkung (sofern entsprechendes System im Fzg/Baureihe verbaut)",
+          "Steps": {
+            "[26] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 26,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Precondition 04: Record all actuator positions and settings ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[27] Status: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 27,
+          "Type": "TsKeyword",
+          "Name": "Status: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_applied'"
+        },
+        "[28] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 28,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[29] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 29,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[30] Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)": {
+          "Line": 30,
+          "Type": "TsKeyword",
+          "Name": "Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'to_the_left'"
+            }
+          }
+        },
+        "[31] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 31,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[32] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 32,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[33] ### Precondition 05: das Abklemmen der Batterie erfolgt aus unterschiedlichen Zuständen:  - Kl15 ein; - Kl15N ein; - Keine Klemme aktiv, aber Busaktiv; - Busruhe + Kl30B aktiv; - Busruhe + KL30B inaktiv (wenn DSC an Kl30B)": {
+          "Line": 33,
+          "Type": "TsBlock",
+          "Name": "### Precondition 05: das Abklemmen der Batterie erfolgt aus unterschiedlichen Zuständen:  - Kl15 ein; - Kl15N ein; - Keine Klemme aktiv, aber Busaktiv; - Busruhe + Kl30B aktiv; - Busruhe + KL30B inaktiv (wenn DSC an Kl30B)",
+          "Steps": {
+            "[34] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 34,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Precondition 05: the battery is disconnected from different states ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[35] Control: List CCM (List_CCM_TSP_EES25)": {
+          "Line": 35,
+          "Type": "TsKeyword",
+          "Name": "Control: List CCM (List_CCM_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_present_list_1'"
+            },
+            "8847": {
+              "Name": "CCMs",
+              "Value": "'all_currently_pending'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            }
+          }
+        }
+      }
+    },
+    "[36] Action": {
+      "Line": 36,
+      "Type": "TsBlock",
+      "Name": "Action",
+      "Steps": {
+        "[37] ### Action 01: Batterie bei Kl15 ein abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten": {
+          "Line": 37,
+          "Type": "TsBlock",
+          "Name": "### Action 01: Batterie bei Kl15 ein abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten",
+          "Steps": {
+            "[38] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 38,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 01: Disconnect the battery at Kl15 and, after waiting approximately one minute, reconnect the battery, switch on terminals ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[39] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 39,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'driving'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[40] Status: Terminal (Terminal_TSP_EES25)": {
+          "Line": 40,
+          "Type": "TsKeyword",
+          "Name": "Status: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "66684": {
+              "Name": "Component",
+              "Value": "'CL15N'"
+            }
+          },
+          "Expectation": "value == 'on'"
+        },
+        "[41] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 41,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[42] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 42,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[43] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 43,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'deactivate'"
+            }
+          }
+        },
+        "[44] Wait(1 min)": {
+          "Line": 44,
+          "Type": "TsWait",
+          "Name": "Wait(1 min)"
+        },
+        "[45] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 45,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[46] Wait(3 s)": {
+          "Line": 46,
+          "Type": "TsWait",
+          "Name": "Wait(3 s)"
+        },
+        "[47] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 47,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[48] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 48,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[49] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 49,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[50] Status: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 50,
+          "Type": "TsKeyword",
+          "Name": "Status: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_applied'"
+        },
+        "[51] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 51,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[52] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 52,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[53] Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)": {
+          "Line": 53,
+          "Type": "TsKeyword",
+          "Name": "Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'to_the_left'"
+            }
+          },
+          "Expectation": "value == Lenkwinkel_davor+/-0.5 (absolute-value)"
+        },
+        "[54] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 54,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[55] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 55,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[56] Control: List CCM (List_CCM_TSP_EES25)": {
+          "Line": 56,
+          "Type": "TsKeyword",
+          "Name": "Control: List CCM (List_CCM_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_list_new'"
+            },
+            "8847": {
+              "Name": "CCMs",
+              "Value": "'all_currently_pending'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            }
+          }
+        },
+        "[57] Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)": {
+          "Line": 57,
+          "Type": "TsKeyword",
+          "Name": "Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)",
+          "Parameter": {
+            "8850": {
+              "Name": "CCM_List_2",
+              "Value": "'CCM_list_new'"
+            },
+            "8851": {
+              "Name": "CCM_Delta_List",
+              "Value": "'CCM_new_List'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            },
+            "8849": {
+              "Name": "CCM_List_1",
+              "Value": "'CCM_present_list_1'"
+            }
+          }
+        },
+        "[58] Status: List CCM (CCM_List_TSP_EES25)": {
+          "Line": 58,
+          "Type": "TsKeyword",
+          "Name": "Status: List CCM (CCM_List_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_new_list'"
+            }
+          },
+          "Expectation": "value == 'empty'"
+        },
+        "[59] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 59,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[60] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 60,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[61] ### Action 02: Batterie bei Kl15N ein aber Wechsel von PAD zu Wohnen abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten": {
+          "Line": 61,
+          "Type": "TsBlock",
+          "Name": "### Action 02: Batterie bei Kl15N ein aber Wechsel von PAD zu Wohnen abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten",
+          "Steps": {
+            "[62] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 62,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 02: Disconnect the battery with Kl15N on but KL15 off and after waiting about a minute, reconnect the battery, turn on the clamps ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[63] If('IPF1_FAR' in api.GlobalConstants.GetConstant('_STGListe'))": {
+          "Line": 63,
+          "Type": "TsIfThenElse",
+          "Name": "If('IPF1_FAR' in api.GlobalConstants.GetConstant('_STGListe'))",
+          "Condition": "'IPF1_FAR' in api.GlobalConstants.GetConstant('_STGListe')",
+          "[64] Then": {
+            "Line": 64,
+            "Type": "Node",
+            "Name": "Then",
+            "Steps": {
+              "[65] Control: Hazard_Lights Vehicle_Condition (Hazard_Lights_Vehicle_Condition_TSP_EES25)": {
+                "Line": 65,
+                "Type": "TsKeyword",
+                "Name": "Control: Hazard_Lights Vehicle_Condition (Hazard_Lights_Vehicle_Condition_TSP_EES25)",
+                "Parameter": {
+                  "80864": {
+                    "Name": "Activity",
+                    "Value": "'leave_PAD_mode'"
+                  }
+                }
+              }
+            }
+          },
+          "[66] Else": {
+            "Line": 66,
+            "Type": "Node",
+            "Name": "Else",
+            "Steps": {
+              "[67] Control: button StartStop (button_StartStop_TSP_EES25)": {
+                "Line": 67,
+                "Type": "TsKeyword",
+                "Name": "Control: button StartStop (button_StartStop_TSP_EES25)",
+                "Parameter": {
+                  "67590": {
+                    "Name": "press_duration",
+                    "Value": "200"
+                  },
+                  "67591": {
+                    "Name": "Activity",
+                    "Value": "'press'"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "[68] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 68,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'deactivate'"
+            }
+          }
+        },
+        "[69] Wait(1 min)": {
+          "Line": 69,
+          "Type": "TsWait",
+          "Name": "Wait(1 min)"
+        },
+        "[70] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 70,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[71] Wait(3 s)": {
+          "Line": 71,
+          "Type": "TsWait",
+          "Name": "Wait(3 s)"
+        },
+        "[72] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 72,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[73] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 73,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[74] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 74,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[75] Status: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 75,
+          "Type": "TsKeyword",
+          "Name": "Status: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_applied'"
+        },
+        "[76] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 76,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[77] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 77,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[78] Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)": {
+          "Line": 78,
+          "Type": "TsKeyword",
+          "Name": "Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'to_the_left'"
+            }
+          },
+          "Expectation": "value == Lenkwinkel_davor+/-0.5 (absolute-value)"
+        },
+        "[79] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 79,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[80] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 80,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'Steering must not steer independently, steering angle = %.2f (Target-Value: %.2f +/- 0.5) ' % (Lenkwinkel, Lenkwinkel_davor)"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[81] Control: List CCM (List_CCM_TSP_EES25)": {
+          "Line": 81,
+          "Type": "TsKeyword",
+          "Name": "Control: List CCM (List_CCM_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_list_new'"
+            },
+            "8847": {
+              "Name": "CCMs",
+              "Value": "'all_currently_pending'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            }
+          }
+        },
+        "[82] Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)": {
+          "Line": 82,
+          "Type": "TsKeyword",
+          "Name": "Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)",
+          "Parameter": {
+            "8850": {
+              "Name": "CCM_List_2",
+              "Value": "'CCM_list_new'"
+            },
+            "8851": {
+              "Name": "CCM_Delta_List",
+              "Value": "'CCM_new_List'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            },
+            "8849": {
+              "Name": "CCM_List_1",
+              "Value": "'CCM_present_list_1'"
+            }
+          }
+        },
+        "[83] Status: List CCM (CCM_List_TSP_EES25)": {
+          "Line": 83,
+          "Type": "TsKeyword",
+          "Name": "Status: List CCM (CCM_List_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_new_list'"
+            }
+          },
+          "Expectation": "value == 'empty'"
+        },
+        "[84] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 84,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[85] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 85,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'No new CCMs must have been added; new CCMs: %s' % api.GlobalConstants.CCM_new_list"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[86] ### Action 03: Batterie bei noch wachem Bordnetz und keiner eingeschalteten Klemme abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten": {
+          "Line": 86,
+          "Type": "TsBlock",
+          "Name": "### Action 03: Batterie bei noch wachem Bordnetz und keiner eingeschalteten Klemme abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten",
+          "Steps": {
+            "[87] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 87,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 03: Disconnect the battery with the power supply still awake and no terminal switched on and, after waiting approximately one minute, reconnect the battery, switch on the terminals ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[88] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 88,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[89] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 89,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[90] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 90,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[91] If('IPF1_FAR' in api.GlobalConstants.GetConstant('_STGListe'))": {
+          "Line": 91,
+          "Type": "TsIfThenElse",
+          "Name": "If('IPF1_FAR' in api.GlobalConstants.GetConstant('_STGListe'))",
+          "Condition": "'IPF1_FAR' in api.GlobalConstants.GetConstant('_STGListe')",
+          "[92] Then": {
+            "Line": 92,
+            "Type": "Node",
+            "Name": "Then",
+            "Steps": {
+              "[93] Control: Hazard_Lights Vehicle_Condition (Hazard_Lights_Vehicle_Condition_TSP_EES25)": {
+                "Line": 93,
+                "Type": "TsKeyword",
+                "Name": "Control: Hazard_Lights Vehicle_Condition (Hazard_Lights_Vehicle_Condition_TSP_EES25)",
+                "Parameter": {
+                  "80864": {
+                    "Name": "Activity",
+                    "Value": "'leave_PAD_mode'"
+                  }
+                }
+              }
+            }
+          },
+          "[94] Else": {
+            "Line": 94,
+            "Type": "Node",
+            "Name": "Else",
+            "Steps": {
+              "[95] Control: button StartStop (button_StartStop_TSP_EES25)": {
+                "Line": 95,
+                "Type": "TsKeyword",
+                "Name": "Control: button StartStop (button_StartStop_TSP_EES25)",
+                "Parameter": {
+                  "67590": {
+                    "Name": "press_duration",
+                    "Value": "200"
+                  },
+                  "67591": {
+                    "Name": "Activity",
+                    "Value": "'press'"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "[96] Wait(6 s)": {
+          "Line": 96,
+          "Type": "TsWait",
+          "Name": "Wait(6 s)"
+        },
+        "[97] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 97,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL15N'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'wait_until_off'"
+            }
+          }
+        },
+        "[98] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 98,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'deactivate'"
+            }
+          }
+        },
+        "[99] Wait(1 min)": {
+          "Line": 99,
+          "Type": "TsWait",
+          "Name": "Wait(1 min)"
+        },
+        "[100] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 100,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[101] Wait(3 s)": {
+          "Line": 101,
+          "Type": "TsWait",
+          "Name": "Wait(3 s)"
+        },
+        "[102] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 102,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[103] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 103,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[104] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 104,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[105] Status: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 105,
+          "Type": "TsKeyword",
+          "Name": "Status: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_applied'"
+        },
+        "[106] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 106,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[107] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 107,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[108] Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)": {
+          "Line": 108,
+          "Type": "TsKeyword",
+          "Name": "Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'to_the_left'"
+            }
+          },
+          "Expectation": "value == Lenkwinkel_davor+/-0.5 (absolute-value)"
+        },
+        "[109] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 109,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[110] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 110,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'Steering must not steer independently, steering angle = %.2f (Target-Value: %.2f +/- 0.5) ' % (Lenkwinkel, Lenkwinkel_davor)"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[111] Control: List CCM (List_CCM_TSP_EES25)": {
+          "Line": 111,
+          "Type": "TsKeyword",
+          "Name": "Control: List CCM (List_CCM_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_list_new'"
+            },
+            "8847": {
+              "Name": "CCMs",
+              "Value": "'all_currently_pending'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            }
+          }
+        },
+        "[112] Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)": {
+          "Line": 112,
+          "Type": "TsKeyword",
+          "Name": "Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)",
+          "Parameter": {
+            "8850": {
+              "Name": "CCM_List_2",
+              "Value": "'CCM_list_new'"
+            },
+            "8851": {
+              "Name": "CCM_Delta_List",
+              "Value": "'CCM_new_List'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            },
+            "8849": {
+              "Name": "CCM_List_1",
+              "Value": "'CCM_present_list_1'"
+            }
+          }
+        },
+        "[113] Status: List CCM (CCM_List_TSP_EES25)": {
+          "Line": 113,
+          "Type": "TsKeyword",
+          "Name": "Status: List CCM (CCM_List_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_new_list'"
+            }
+          },
+          "Expectation": "value == 'empty'"
+        },
+        "[114] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 114,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[115] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 115,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'No new CCMs must have been added; new CCMs: %s' % api.GlobalConstants.CCM_new_list"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[116] ### Action 04: Batterie bei Busruhe und Kl30B aktiv abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten": {
+          "Line": 116,
+          "Type": "TsBlock",
+          "Name": "### Action 04: Batterie bei Busruhe und Kl30B aktiv abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten",
+          "Steps": {
+            "[117] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 117,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 04: Actively disconnect the battery when the bus is quiet and Kl30B on and, after waiting approximately one minute, reconnect the battery, turn on terminals ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[118] Control: Bus_rest (Bus_Rest_TSP_EES25)": {
+          "Line": 118,
+          "Type": "TsKeyword",
+          "Name": "Control: Bus_rest (Bus_Rest_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[119] Comment": {
+          "Line": 119,
+          "Type": "TsComment",
+          "Name": "Comment"
+        },
+        "[123] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 123,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'deactivate'"
+            }
+          }
+        },
+        "[124] Wait(1 min)": {
+          "Line": 124,
+          "Type": "TsWait",
+          "Name": "Wait(1 min)"
+        },
+        "[125] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 125,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[126] Wait(3 s)": {
+          "Line": 126,
+          "Type": "TsWait",
+          "Name": "Wait(3 s)"
+        },
+        "[127] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 127,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[128] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 128,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[129] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 129,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[130] Status: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 130,
+          "Type": "TsKeyword",
+          "Name": "Status: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_applied'"
+        },
+        "[131] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 131,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[132] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 132,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[133] Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)": {
+          "Line": 133,
+          "Type": "TsKeyword",
+          "Name": "Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'to_the_left'"
+            }
+          },
+          "Expectation": "value == Lenkwinkel_davor+/-0.5 (absolute-value)"
+        },
+        "[134] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 134,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[135] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 135,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'Steering must not steer independently, steering angle = %.2f (Target-Value: %.2f +/- 0.5) ' % (Lenkwinkel, Lenkwinkel_davor)"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[136] Control: List CCM (List_CCM_TSP_EES25)": {
+          "Line": 136,
+          "Type": "TsKeyword",
+          "Name": "Control: List CCM (List_CCM_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_list_new'"
+            },
+            "8847": {
+              "Name": "CCMs",
+              "Value": "'all_currently_pending'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            }
+          }
+        },
+        "[137] Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)": {
+          "Line": 137,
+          "Type": "TsKeyword",
+          "Name": "Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)",
+          "Parameter": {
+            "8850": {
+              "Name": "CCM_List_2",
+              "Value": "'CCM_list_new'"
+            },
+            "8851": {
+              "Name": "CCM_Delta_List",
+              "Value": "'CCM_new_List'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            },
+            "8849": {
+              "Name": "CCM_List_1",
+              "Value": "'CCM_present_list_1'"
+            }
+          }
+        },
+        "[138] Status: List CCM (CCM_List_TSP_EES25)": {
+          "Line": 138,
+          "Type": "TsKeyword",
+          "Name": "Status: List CCM (CCM_List_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_new_list'"
+            }
+          },
+          "Expectation": "value == 'empty'"
+        },
+        "[139] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 139,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[140] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 140,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[141] ### Action 05: Batterie bei Busruhe und KL30B inaktiv (wenn DSC an Kl30B abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten": {
+          "Line": 141,
+          "Type": "TsBlock",
+          "Name": "### Action 05: Batterie bei Busruhe und KL30B inaktiv (wenn DSC an Kl30B abklemmen und nach der Wartezeit von ca. einer Minute die Batterie wieder anklemmen, Klemmen einschalten",
+          "Steps": {
+            "[142] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 142,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 05: Disconnect the battery when the bus is idle and KL30B is inactive (when DSC on Kl30B) and, after waiting approximately one minute, reconnect the battery, switch on terminals ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[143] Control: Bus_rest (Bus_Rest_TSP_EES25)": {
+          "Line": 143,
+          "Type": "TsKeyword",
+          "Name": "Control: Bus_rest (Bus_Rest_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[144] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 144,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30B'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'wait_until_off'"
+            }
+          }
+        },
+        "[145] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 145,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'deactivate'"
+            }
+          }
+        },
+        "[146] Wait(1 min)": {
+          "Line": 146,
+          "Type": "TsWait",
+          "Name": "Wait(1 min)"
+        },
+        "[147] Control: Terminal (Terminal_TSP_EES25)": {
+          "Line": 147,
+          "Type": "TsKeyword",
+          "Name": "Control: Terminal (Terminal_TSP_EES25)",
+          "Parameter": {
+            "9002": {
+              "Name": "terminal_type",
+              "Value": "'CL30'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[148] Wait(3 s)": {
+          "Line": 148,
+          "Type": "TsWait",
+          "Name": "Wait(3 s)"
+        },
+        "[149] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 149,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'PAD'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[150] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 150,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[151] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 151,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[152] Status: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 152,
+          "Type": "TsKeyword",
+          "Name": "Status: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_applied'"
+        },
+        "[153] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 153,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[154] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 154,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[155] Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)": {
+          "Line": 155,
+          "Type": "TsKeyword",
+          "Name": "Status: Steering_Angle Steering_Wheel (Steering_Wheel_Steering_Angle_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'to_the_left'"
+            }
+          },
+          "Expectation": "value == Lenkwinkel_davor+/-0.5 (absolute-value)"
+        },
+        "[156] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 156,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[157] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 157,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'Steering must not steer independently, steering angle = %.2f (Target-Value: %.2f +/- 0.5) ' % (Lenkwinkel, Lenkwinkel_davor)"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[158] Control: List CCM (List_CCM_TSP_EES25)": {
+          "Line": 158,
+          "Type": "TsKeyword",
+          "Name": "Control: List CCM (List_CCM_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_list_new'"
+            },
+            "8847": {
+              "Name": "CCMs",
+              "Value": "'all_currently_pending'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            }
+          }
+        },
+        "[159] Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)": {
+          "Line": 159,
+          "Type": "TsKeyword",
+          "Name": "Control: Delta_List CCM (CCM_Delta_List_TSP_EES25)",
+          "Parameter": {
+            "8850": {
+              "Name": "CCM_List_2",
+              "Value": "'CCM_list_new'"
+            },
+            "8851": {
+              "Name": "CCM_Delta_List",
+              "Value": "'CCM_new_List'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'create'"
+            },
+            "8849": {
+              "Name": "CCM_List_1",
+              "Value": "'CCM_present_list_1'"
+            }
+          }
+        },
+        "[160] Status: List CCM (CCM_List_TSP_EES25)": {
+          "Line": 160,
+          "Type": "TsKeyword",
+          "Name": "Status: List CCM (CCM_List_TSP_EES25)",
+          "Parameter": {
+            "8852": {
+              "Name": "Name_CCM_List",
+              "Value": "'CCM_new_list'"
+            }
+          },
+          "Expectation": "value == 'empty'"
+        },
+        "[161] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 161,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[162] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 162,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "'No new CCMs must have been added; new CCMs: %s' % api.GlobalConstants.CCM_new_list"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "[163] Postcondition": {
+      "Line": 163,
+      "Type": "TsPostconditionBlock",
+      "Name": "Postcondition",
+      "Steps": {
+        "[164] Establish: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 164,
+          "Type": "TsKeyword",
+          "Name": "Establish: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_released'"
+        },
+        "[165] Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)": {
+          "Line": 165,
+          "Type": "TsKeyword",
+          "Name": "Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)",
+          "Parameter": {
+            "67397": {
+              "Name": "UserText",
+              "Value": "'_'"
+            },
+            "67398": {
+              "Name": "NewErrorsAfterTest",
+              "Value": "[0x4809c0, 0x482300, 0x482394, 0x030844, 0x030845, 0x03084e, 0xd7579e, 0xd75b2a, 0x482329, 0x0330c4, 0x0330cf, 0x030640]"
+            },
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "67395": {
+              "Name": "Traceanalysis",
+              "Value": "'no_traceanalysis'"
+            }
+          }
+        }
+      }
+    }
+  }
+}

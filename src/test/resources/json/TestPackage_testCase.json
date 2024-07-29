@@ -1,0 +1,256 @@
+{
+    "Name": "TestPackage_testCase",
+    "Id": "000000",
+    "Version": "1",
+    "Path": "..\\PackageJsonParser\\src\\test\\resources\\package\\TestPackage_testCase.pkg",
+    "Complexity": "standard",
+    "Steps": {
+        "[1] Precondition": {
+            "Line": 1,
+            "Type": "TsPreconditionBlock",
+            "Name": "Precondition",
+            "Steps": {
+                "[2] Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)": {
+                    "Line": 2,
+                    "Type": "TsKeyword",
+                    "Name": "Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)",
+                    "Id": "43389",
+                    "Parameter": {
+                        "8731": {
+                            "Name": "TestNameMan",
+                            "Value": "'_'"
+                        },
+                        "8737": {
+                            "Name": "CANoe_Config",
+                            "Value": "'Default'"
+                        },
+                        "ID_KW_ACTIVITY": {
+                            "Name": "Activity",
+                            "Value": "'start'"
+                        },
+                        "8738": {
+                            "Name": "ECU_List_Type",
+                            "Value": "'EF_expanded'"
+                        }
+                    }
+                }
+            }
+        },
+        "[3] Action": {
+            "Line": 3,
+            "Type": "TsBlock",
+            "Name": "Action",
+            "Steps": {
+                "[4] Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)": {
+                    "Line": 4,
+                    "Type": "TsKeyword",
+                    "Name": "Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)",
+                    "Id": "43257",
+                    "Parameter": {
+                        "68589": {
+                            "Name": "operational_readiness_EF_interconnetion",
+                            "Value": "'full_system'"
+                        }
+                    },
+                    "Expectation": "value == 'active'"
+                },
+                "[5] Wait(50 ms)": {
+                    "Line": 5,
+                    "Type": "TsWait",
+                    "Name": "Wait(50 ms)"
+                },
+                "[6] establish PAD": {
+                    "Line": 6,
+                    "Type": "TsBlock",
+                    "Name": "establish PAD",
+                    "Steps": {
+                        "[7] Loop(5)": {
+                            "Line": 7,
+                            "Type": "TsLoop",
+                            "Name": "Loop(5)",
+                            "Steps": {
+                                "[8] Read(ST_CON_VEH)": {
+                                    "Line": 8,
+                                    "Type": "TsRead",
+                                    "Name": "Read(ST_CON_VEH)",
+                                    "Signal": {
+                                        "Name": "ST_CON_VEH",
+                                        "Path": "A_FlexRay//CON_VEH/CON_VEH/ST_CON_VEH",
+                                        "Category": "Vehicle_Condition",
+                                        "AccessType": "BUS",
+                                        "SystemIdentifier": "A_FlexRay",
+                                        "Pdu": "CON_VEH",
+                                        "Node": "",
+                                        "Frame": "CON_VEH"
+                                    }
+                                },
+                                "[9] If(_ST_CON_VEH == 'PAD')": {
+                                    "Line": 9,
+                                    "Type": "TsIfThenElse",
+                                    "Name": "If(_ST_CON_VEH == 'PAD')",
+                                    "Condition": "_ST_CON_VEH == 'PAD'",
+                                    "[10] Then": {
+                                        "Line": 10,
+                                        "Type": "Node",
+                                        "Name": "Then",
+                                        "Steps": {
+                                            "[11] Break": {
+                                                "Line": 11,
+                                                "Type": "TsBreak",
+                                                "Name": "Break"
+                                            }
+                                        }
+                                    },
+                                    "[12] Else": {
+                                        "Line": 12,
+                                        "Type": "Node",
+                                        "Name": "Else",
+                                        "Steps": {}
+                                    }
+                                },
+                                "[13] Switch(_ST_CON_VEH)": {
+                                    "Line": 13,
+                                    "Type": "TsSwitchCase",
+                                    "Name": "Switch(_ST_CON_VEH)",
+                                    "Value": "_ST_CON_VEH",
+                                    "Cases": {
+                                        "[14] Case('driving')": {
+                                            "Line": 14,
+                                            "Type": "TsCaseNode",
+                                            "Name": "Case('driving')",
+                                            "Steps": {
+                                                "[15] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+                                                    "Line": 15,
+                                                    "Type": "TsKeyword",
+                                                    "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+                                                    "Id": "46063",
+                                                    "Parameter": {
+                                                        "7768": {
+                                                            "Name": "vehicle_condition",
+                                                            "Value": "'living'"
+                                                        }
+                                                    },
+                                                    "Expectation": "value == 'is_active'"
+                                                },
+                                                "[16] Read(ST_CON_VEH)": {
+                                                    "Line": 16,
+                                                    "Type": "TsRead",
+                                                    "Name": "Read(ST_CON_VEH)",
+                                                    "Signal": {
+                                                        "Name": "ST_CON_VEH",
+                                                        "Path": "A_FlexRay//CON_VEH/CON_VEH/ST_CON_VEH",
+                                                        "Category": "Vehicle_Condition",
+                                                        "AccessType": "BUS",
+                                                        "SystemIdentifier": "A_FlexRay",
+                                                        "Pdu": "CON_VEH",
+                                                        "Node": "",
+                                                        "Frame": "CON_VEH"
+                                                    },
+                                                    "Expectation": "value == 'living'"
+                                                }
+                                            }
+                                        },
+                                        "[17] Case('living')": {
+                                            "Line": 17,
+                                            "Type": "TsCaseNode",
+                                            "Name": "Case('living')",
+                                            "Steps": {
+                                                "[18] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+                                                    "Line": 18,
+                                                    "Type": "TsKeyword",
+                                                    "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+                                                    "Id": "46063",
+                                                    "Parameter": {
+                                                        "7768": {
+                                                            "Name": "vehicle_condition",
+                                                            "Value": "'PAD'"
+                                                        }
+                                                    },
+                                                    "Expectation": "value == 'is_active'"
+                                                },
+                                                "[19] Read(ST_CON_VEH)": {
+                                                    "Line": 19,
+                                                    "Type": "TsRead",
+                                                    "Name": "Read(ST_CON_VEH)",
+                                                    "Signal": {
+                                                        "Name": "ST_CON_VEH",
+                                                        "Path": "A_FlexRay//CON_VEH/CON_VEH/ST_CON_VEH",
+                                                        "Category": "Vehicle_Condition",
+                                                        "AccessType": "BUS",
+                                                        "SystemIdentifier": "A_FlexRay",
+                                                        "Pdu": "CON_VEH",
+                                                        "Node": "",
+                                                        "Frame": "CON_VEH"
+                                                    },
+                                                    "Expectation": "value == 'PAD'"
+                                                }
+                                            }
+                                        },
+                                        "[20] Default": {
+                                            "Line": 20,
+                                            "Type": "TsCaseNode",
+                                            "Name": "Default",
+                                            "Steps": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "Count": "5"
+                        }
+                    }
+                },
+                "[21] Read(ST_CON_VEH)": {
+                    "Line": 21,
+                    "Type": "TsRead",
+                    "Name": "Read(ST_CON_VEH)",
+                    "Signal": {
+                        "Name": "ST_CON_VEH",
+                        "Path": "A_FlexRay//CON_VEH/CON_VEH/ST_CON_VEH",
+                        "Category": "Vehicle_Condition",
+                        "AccessType": "BUS",
+                        "SystemIdentifier": "A_FlexRay",
+                        "Pdu": "CON_VEH",
+                        "Node": "",
+                        "Frame": "CON_VEH"
+                    },
+                    "Expectation": "value == 'Pruefen_Analyse_Diagnose'"
+                }
+            }
+        },
+        "[22] Postcondition": {
+            "Line": 22,
+            "Type": "TsPostconditionBlock",
+            "Name": "Postcondition",
+            "Steps": {
+                "[23] Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)": {
+                    "Line": 23,
+                    "Type": "TsKeyword",
+                    "Name": "Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)",
+                    "Id": "43385",
+                    "Parameter": {
+                        "67397": {
+                            "Name": "UserText",
+                            "Value": "'_'"
+                        },
+                        "67398": {
+                            "Name": "NewErrorsAfterTest",
+                            "Value": "'new_errors_allowed'"
+                        },
+                        "8731": {
+                            "Name": "TestNameMan",
+                            "Value": "'_'"
+                        },
+                        "ID_KW_ACTIVITY": {
+                            "Name": "Activity",
+                            "Value": "'start'"
+                        },
+                        "67395": {
+                            "Name": "Traceanalysis",
+                            "Value": "'no_traceanalysis'"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

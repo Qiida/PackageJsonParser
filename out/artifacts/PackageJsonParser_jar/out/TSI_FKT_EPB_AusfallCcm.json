@@ -1,0 +1,564 @@
+{
+  "Name": "TSI_FKT_EPB_AusfallCcm",
+  "Id": "981682",
+  "Version": "0.1.0",
+  "Path": "C:\\src\\BK25_Workspace\\Packages\\TCI\\DD_TSP\\_TSI_overall\\R23-09\\TSI_FKT_EPB_AusfallCcm.pkg",
+  "Steps": {
+    "[1] Precondition": {
+      "Line": 1,
+      "Type": "TsPreconditionBlock",
+      "Name": "Precondition",
+      "Steps": {
+        "[2] Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)": {
+          "Line": 2,
+          "Type": "TsKeyword",
+          "Name": "Control: Initialization test_bench (test_bench_Initialization_TSP_EES25)",
+          "Parameter": {
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "8737": {
+              "Name": "CANoe_Config",
+              "Value": "'Default'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "8738": {
+              "Name": "ECU_List_Type",
+              "Value": "'EF_expanded'"
+            }
+          }
+        },
+        "[3] ### Precondition 01: - Fahrzeug steht, Motor an, Getriebe Position P": {
+          "Line": 3,
+          "Type": "TsBlock",
+          "Name": "### Precondition 01: - Fahrzeug steht, Motor an, Getriebe Position P",
+          "Steps": {
+            "[4] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 4,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Precondition 01: Vehicle stationary, Vehicle condition \"driving\", DSC in full system ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[5] Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)": {
+          "Line": 5,
+          "Type": "TsKeyword",
+          "Name": "Establish: Vehicle_Condition (Vehicle_Condition_TSP_EES25)",
+          "Parameter": {
+            "7768": {
+              "Name": "vehicle_condition",
+              "Value": "'driving'"
+            }
+          },
+          "Expectation": "value == 'is_active'"
+        },
+        "[6] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 6,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[7] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 7,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[8] Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)": {
+          "Line": 8,
+          "Type": "TsKeyword",
+          "Name": "Status: readiness_for_operation EF_ECU_interconnection (Readiness_for_Operation_EF_ECU_Interconnection_TSP_EES25)",
+          "Parameter": {
+            "68589": {
+              "Name": "operational_readiness_EF_interconnetion",
+              "Value": "'full_system'"
+            }
+          },
+          "Expectation": "value == 'active'"
+        },
+        "[9] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 9,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[10] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 10,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[11] Establish: Stage_Drive (Stage_Drive_TSP_EES25)": {
+          "Line": 11,
+          "Type": "TsKeyword",
+          "Name": "Establish: Stage_Drive (Stage_Drive_TSP_EES25)",
+          "Parameter": {
+            "7757": {
+              "Name": "status_stage_drive",
+              "Value": "'P'"
+            }
+          },
+          "Expectation": "value == 'is_inserted'"
+        },
+        "[12] Ergebnis letzter Schritt dokumentieren": {
+          "Line": 12,
+          "Type": "TsBlock",
+          "Name": "Ergebnis letzter Schritt dokumentieren",
+          "Steps": {
+            "[13] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+              "Line": 13,
+              "Type": "TsKeyword",
+              "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+              "Parameter": {
+                "67377": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67375": {
+                  "Name": "text",
+                  "Value": "api.GlobalConstants._OverView_Text"
+                },
+                "67376": {
+                  "Name": "create_text",
+                  "Value": "'always'"
+                },
+                "67373": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'write_date_time'"
+                },
+                "67374": {
+                  "Name": "read_relative_time",
+                  "Value": "'read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[14] Establish: parking_brake (Parking_Brake_TSP_EES25)": {
+          "Line": 14,
+          "Type": "TsKeyword",
+          "Name": "Establish: parking_brake (Parking_Brake_TSP_EES25)",
+          "Parameter": {},
+          "Expectation": "value == 'is_released'"
+        }
+      }
+    },
+    "[15] Action": {
+      "Line": 15,
+      "Type": "TsBlock",
+      "Name": "Action",
+      "Steps": {
+        "[16] ### Action 01: - EPB-Funktion wird über Leitungsunterbrechung des EPB-Tasters in den Fehlerzustand gebracht": {
+          "Line": 16,
+          "Type": "TsBlock",
+          "Name": "### Action 01: - EPB-Funktion wird über Leitungsunterbrechung des EPB-Tasters in den Fehlerzustand gebracht",
+          "Steps": {
+            "[17] Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)": {
+              "Line": 17,
+              "Type": "TsKeyword",
+              "Name": "Control: text_to OverViewFile (OverViewFile_-_Add_Text_to_TSP_EES25)",
+              "Parameter": {
+                "67384": {
+                  "Name": "text",
+                  "Value": "'\\n\\n### Action 01: EPB function is brought into error state by interrupting the EPB button ###\\n'"
+                },
+                "67385": {
+                  "Name": "Activity",
+                  "Value": "'add'"
+                },
+                "67382": {
+                  "Name": "DateTimeMarker",
+                  "Value": "'dont_write_date_time'"
+                },
+                "67383": {
+                  "Name": "read_relative_time",
+                  "Value": "'dont_read_relative_time'"
+                }
+              }
+            }
+          }
+        },
+        "[18] Control: button parking_brake error_activation (Parking_Brake_Button_Error_Activation_TSP_EES25)": {
+          "Line": 18,
+          "Type": "TsKeyword",
+          "Name": "Control: button parking_brake error_activation (Parking_Brake_Button_Error_Activation_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'activate'"
+            }
+          }
+        },
+        "[19] If('IPF1_DAF' in api.GlobalConstants._STGListe)": {
+          "Line": 19,
+          "Type": "TsIfThenElse",
+          "Name": "If('IPF1_DAF' in api.GlobalConstants._STGListe)",
+          "Condition": "'IPF1_DAF' in api.GlobalConstants._STGListe",
+          "[20] Then": {
+            "Line": 20,
+            "Type": "Node",
+            "Name": "Then",
+            "Steps": {
+              "[21] Read(NO_CC_BYPA_01)": {
+                "Line": 21,
+                "Type": "TsRead",
+                "Name": "Read(NO_CC_BYPA_01)",
+                "Signal": {
+                  "Name": "NO_CC_BYPA_01",
+                  "Path": "A_FlexRay//DisplayCheckControlParkingBrake/DisplayCheckControlParkingBrake/NO_CC_BYPA_01",
+                  "Category": "CCM",
+                  "AccessType": "BUS",
+                  "SystemIdentifier": "A_FlexRay",
+                  "Pdu": "DisplayCheckControlParkingBrake",
+                  "Node": "",
+                  "Frame": "DisplayCheckControlParkingBrake"
+                },
+                "Expectation": "value == 726"
+              },
+              "[22] Ergebnis letzter Schritt dokumentieren": {
+                "Line": 22,
+                "Type": "TsBlock",
+                "Name": "Ergebnis letzter Schritt dokumentieren",
+                "Steps": {
+                  "[23] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                    "Line": 23,
+                    "Type": "TsKeyword",
+                    "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                    "Parameter": {
+                      "67377": {
+                        "Name": "Activity",
+                        "Value": "'add'"
+                      },
+                      "67375": {
+                        "Name": "text",
+                        "Value": "'CCM 726 should be on NO_CC_BYPASS_01, Actual-Value: CCM %s' % _NO_CC_BYPA_01"
+                      },
+                      "67376": {
+                        "Name": "create_text",
+                        "Value": "'always'"
+                      },
+                      "67373": {
+                        "Name": "DateTimeMarker",
+                        "Value": "'write_date_time'"
+                      },
+                      "67374": {
+                        "Name": "read_relative_time",
+                        "Value": "'read_relative_time'"
+                      }
+                    }
+                  }
+                }
+              },
+              "[24] Status: CCM (CCM_TSP_EES25)": {
+                "Line": 24,
+                "Type": "TsKeyword",
+                "Name": "Status: CCM (CCM_TSP_EES25)",
+                "Parameter": {
+                  "8846": {
+                    "Name": "CCM_Liste",
+                    "Value": "[6409]"
+                  }
+                },
+                "Expectation": "value == 'active'"
+              },
+              "[25] Ergebnis letzter Schritt dokumentieren": {
+                "Line": 25,
+                "Type": "TsBlock",
+                "Name": "Ergebnis letzter Schritt dokumentieren",
+                "Steps": {
+                  "[26] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                    "Line": 26,
+                    "Type": "TsKeyword",
+                    "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                    "Parameter": {
+                      "67377": {
+                        "Name": "Activity",
+                        "Value": "'add'"
+                      },
+                      "67375": {
+                        "Name": "text",
+                        "Value": "api.GlobalConstants._OverView_Text"
+                      },
+                      "67376": {
+                        "Name": "create_text",
+                        "Value": "'always'"
+                      },
+                      "67373": {
+                        "Name": "DateTimeMarker",
+                        "Value": "'write_date_time'"
+                      },
+                      "67374": {
+                        "Name": "read_relative_time",
+                        "Value": "'read_relative_time'"
+                      }
+                    }
+                  }
+                }
+              },
+              "[27] Read(NO_CC_BYPA_01)": {
+                "Line": 27,
+                "Type": "TsRead",
+                "Name": "Read(NO_CC_BYPA_01)",
+                "Signal": {
+                  "Name": "NO_CC_BYPA_01",
+                  "Path": "A_FlexRay//DisplayCheckControlParkingBrake/DisplayCheckControlParkingBrake/NO_CC_BYPA_01",
+                  "Category": "CCM",
+                  "AccessType": "BUS",
+                  "SystemIdentifier": "A_FlexRay",
+                  "Pdu": "DisplayCheckControlParkingBrake",
+                  "Node": "",
+                  "Frame": "DisplayCheckControlParkingBrake"
+                },
+                "Expectation": "value == 48"
+              },
+              "[28] Ergebnis letzter Schritt dokumentieren": {
+                "Line": 28,
+                "Type": "TsBlock",
+                "Name": "Ergebnis letzter Schritt dokumentieren",
+                "Steps": {
+                  "[29] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                    "Line": 29,
+                    "Type": "TsKeyword",
+                    "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                    "Parameter": {
+                      "67377": {
+                        "Name": "Activity",
+                        "Value": "'add'"
+                      },
+                      "67375": {
+                        "Name": "text",
+                        "Value": "'CCM 48 should be on NO_CC_BYPASS_01, Actual-Value: CCM %s' % _NO_CC_BYPA_01"
+                      },
+                      "67376": {
+                        "Name": "create_text",
+                        "Value": "'always'"
+                      },
+                      "67373": {
+                        "Name": "DateTimeMarker",
+                        "Value": "'write_date_time'"
+                      },
+                      "67374": {
+                        "Name": "read_relative_time",
+                        "Value": "'read_relative_time'"
+                      }
+                    }
+                  }
+                }
+              },
+              "[30] Status: CCM (CCM_TSP_EES25)": {
+                "Line": 30,
+                "Type": "TsKeyword",
+                "Name": "Status: CCM (CCM_TSP_EES25)",
+                "Parameter": {
+                  "8846": {
+                    "Name": "CCM_Liste",
+                    "Value": "[6413]"
+                  }
+                },
+                "Expectation": "value == 'active'"
+              },
+              "[31] Ergebnis letzter Schritt dokumentieren": {
+                "Line": 31,
+                "Type": "TsBlock",
+                "Name": "Ergebnis letzter Schritt dokumentieren",
+                "Steps": {
+                  "[32] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                    "Line": 32,
+                    "Type": "TsKeyword",
+                    "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                    "Parameter": {
+                      "67377": {
+                        "Name": "Activity",
+                        "Value": "'add'"
+                      },
+                      "67375": {
+                        "Name": "text",
+                        "Value": "api.GlobalConstants._OverView_Text"
+                      },
+                      "67376": {
+                        "Name": "create_text",
+                        "Value": "'always'"
+                      },
+                      "67373": {
+                        "Name": "DateTimeMarker",
+                        "Value": "'write_date_time'"
+                      },
+                      "67374": {
+                        "Name": "read_relative_time",
+                        "Value": "'read_relative_time'"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "[33] Else": {
+            "Line": 33,
+            "Type": "Node",
+            "Name": "Else",
+            "Steps": {
+              "[34] Status: CCM (CCM_TSP_EES25)": {
+                "Line": 34,
+                "Type": "TsKeyword",
+                "Name": "Status: CCM (CCM_TSP_EES25)",
+                "Parameter": {
+                  "8846": {
+                    "Name": "CCM_Liste",
+                    "Value": "[6413]"
+                  }
+                },
+                "Expectation": "value == 'active'"
+              },
+              "[35] Ergebnis letzter Schritt dokumentieren": {
+                "Line": 35,
+                "Type": "TsBlock",
+                "Name": "Ergebnis letzter Schritt dokumentieren",
+                "Steps": {
+                  "[36] Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)": {
+                    "Line": 36,
+                    "Type": "TsKeyword",
+                    "Name": "Control: result_last_step_to OverViewFile (OverViewFile_-_Add_Result_to_Last_Step_TSP_EES25)",
+                    "Parameter": {
+                      "67377": {
+                        "Name": "Activity",
+                        "Value": "'add'"
+                      },
+                      "67375": {
+                        "Name": "text",
+                        "Value": "api.GlobalConstants._OverView_Text"
+                      },
+                      "67376": {
+                        "Name": "create_text",
+                        "Value": "'always'"
+                      },
+                      "67373": {
+                        "Name": "DateTimeMarker",
+                        "Value": "'write_date_time'"
+                      },
+                      "67374": {
+                        "Name": "read_relative_time",
+                        "Value": "'read_relative_time'"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "[37] Postcondition": {
+      "Line": 37,
+      "Type": "TsPostconditionBlock",
+      "Name": "Postcondition",
+      "Steps": {
+        "[38] Control: button parking_brake error_activation (Parking_Brake_Button_Error_Activation_TSP_EES25)": {
+          "Line": 38,
+          "Type": "TsKeyword",
+          "Name": "Control: button parking_brake error_activation (Parking_Brake_Button_Error_Activation_TSP_EES25)",
+          "Parameter": {
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'deactivate'"
+            }
+          }
+        },
+        "[39] Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)": {
+          "Line": 39,
+          "Type": "TsKeyword",
+          "Name": "Control: deinitialization test_bench (test_bench_Deinitialization_TSP_EES25)",
+          "Parameter": {
+            "67397": {
+              "Name": "UserText",
+              "Value": "'_'"
+            },
+            "67398": {
+              "Name": "NewErrorsAfterTest",
+              "Value": "'new_errors_allowed'"
+            },
+            "8731": {
+              "Name": "TestNameMan",
+              "Value": "'_'"
+            },
+            "ID_KW_ACTIVITY": {
+              "Name": "Activity",
+              "Value": "'start'"
+            },
+            "67395": {
+              "Name": "Traceanalysis",
+              "Value": "'no_traceanalysis'"
+            }
+          }
+        }
+      }
+    }
+  }
+}

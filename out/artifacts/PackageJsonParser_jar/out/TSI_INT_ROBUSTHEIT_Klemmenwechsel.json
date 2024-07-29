@@ -1,0 +1,73 @@
+{
+  "Name": "TSI_INT_ROBUSTHEIT_Klemmenwechsel",
+  "Id": "963950",
+  "Version": "0.1.0",
+  "Path": "C:\\src\\BK25_Workspace\\Packages\\TCI\\DD_TSP\\_TSI_overall\\R23-09\\TSI_INT_ROBUSTHEIT_Klemmenwechsel.pkg",
+  "Steps": {
+    "[1] Precondition": {
+      "Line": 1,
+      "Type": "TsPreconditionBlock",
+      "Name": "Precondition",
+      "Steps": {
+        "[2] Precondition Klemmenwechseltest:\nVariablen initialisieren\nSGBD Liste ermitteln\nOverview Datei erstellen\nPrüfstand Initialisieren\nInit Fehler nach Sleep ermitteln\nFS/IS löschen": {
+          "Line": 2,
+          "Type": "TsBlock",
+          "Name": "Precondition Klemmenwechseltest:\nVariablen initialisieren\nSGBD Liste ermitteln\nOverview Datei erstellen\nPrüfstand Initialisieren\nInit Fehler nach Sleep ermitteln\nFS/IS löschen",
+          "Steps": {
+            "[3] Precondition_Klemmenwechsel": {
+              "Line": 3,
+              "Type": "TsPackageCall",
+              "Name": "Precondition_Klemmenwechsel"
+            }
+          }
+        }
+      }
+    },
+    "[4] Action": {
+      "Line": 4,
+      "Type": "TsBlock",
+      "Name": "Action",
+      "Steps": {
+        "[5] Endlosschleife:\nWechsel Wohnen -> PAD mit variablen Wartezeiten\nÜberprüfen der STG Liste\nCCMs lesen FS-Lesen und Abspeichern IS-Lesen und Abspeichern neue Fehler oder tote STG auslesen Zusammenfassung aller Fehler Copy BusTrace wenn neue Ereignisse FS-Loeschen Funktional IS-Loeschen Funktional Variablen Updaten Prüfung: Time, User oder DTC Abbruch Prüfstand in Ausganszustand führen": {
+          "Line": 5,
+          "Type": "TsBlock",
+          "Name": "Endlosschleife:\nWechsel Wohnen -> PAD mit variablen Wartezeiten\nÜberprüfen der STG Liste\nCCMs lesen FS-Lesen und Abspeichern IS-Lesen und Abspeichern neue Fehler oder tote STG auslesen Zusammenfassung aller Fehler Copy BusTrace wenn neue Ereignisse FS-Loeschen Funktional IS-Loeschen Funktional Variablen Updaten Prüfung: Time, User oder DTC Abbruch Prüfstand in Ausganszustand führen",
+          "Steps": {
+            "[6] Loop(10000)": {
+              "Line": 6,
+              "Type": "TsLoop",
+              "Name": "Loop(10000)",
+              "Steps": {
+                "[7] Doku_TSI_INT_ROBUSTHEIT_Klemmenwechsel": {
+                  "Line": 7,
+                  "Type": "TsPackageCall",
+                  "Name": "Doku_TSI_INT_ROBUSTHEIT_Klemmenwechsel"
+                }
+              },
+              "Count": "10000"
+            }
+          }
+        }
+      }
+    },
+    "[8] Postcondition": {
+      "Line": 8,
+      "Type": "TsPostconditionBlock",
+      "Name": "Postcondition",
+      "Steps": {
+        "[9] Postcondition Klemmenwechseltest:\nStatistik der Fehler dokumentieren\nPrüfstand deinitialisieren": {
+          "Line": 9,
+          "Type": "TsBlock",
+          "Name": "Postcondition Klemmenwechseltest:\nStatistik der Fehler dokumentieren\nPrüfstand deinitialisieren",
+          "Steps": {
+            "[10] Postcondition_Klemmenwechsel": {
+              "Line": 10,
+              "Type": "TsPackageCall",
+              "Name": "Postcondition_Klemmenwechsel"
+            }
+          }
+        }
+      }
+    }
+  }
+}
